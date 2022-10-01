@@ -6,13 +6,9 @@ const ChargerModel = mongoose.model('ChargerModel')
 dotenv.config()
 
 if (process.env.NODE_ENV == 'production') {
-  mongoose.connect(
-    'mongodb+srv://doadmin:736c0q2X814bZSFw@statistics-mongodb-9e65cf54.mongo.ondigitalocean.com/keychainfortesla?authSource=admin&replicaSet=statistics-mongodb&tls=true&tlsCAFile=' + process.env.CA_MONGO_CERT
-  )
+  mongoose.connect(process.env.MONGO_URL)
 } else {
-  mongoose.connect(
-    'mongodb://127.0.0.1:27017/keychainfortesla'
-  )
+  mongoose.connect('mongodb://127.0.0.1:27017/foray')
 }
 
 const db = mongoose.connection;
