@@ -12,4 +12,4 @@ const chargerSchema = new mongoose.Schema({
   powerKilowatt: Number
 })
 
-const ChargerModel = mongoose.model('Charger', chargerSchema)
+module.exports = chargerSchema;
