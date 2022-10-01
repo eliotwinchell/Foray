@@ -1,0 +1,19 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '15.0'
+
+target 'Foray' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for TeslaKeychain
+  pod 'TeslaSwift', '~> 7'
+  pod 'TeslaSwift/PromiseKit', '~> 7'
+  pod 'TeslaSwift/Combine', '~> 7'
+  pod 'TeslaSwift/Rx', '~> 7'
+  pod 'TeslaSwift/Streaming', '~> 7'
+
+  # NotificationBanner
+  pod 'NotificationBannerSwift', '~> 3.0.0'
+end
+
+

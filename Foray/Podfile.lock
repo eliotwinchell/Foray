@@ -1,0 +1,64 @@
+PODS:
+  - MarqueeLabel (4.0.5)
+  - NotificationBannerSwift (3.0.6):
+    - MarqueeLabel (~> 4.0.5)
+    - SnapKit (~> 5.0.1)
+  - PromiseKit/CorePromise (6.17.1)
+  - RxCocoa (6.0.0-rc.2):
+    - RxRelay (= 6.0.0-rc.2)
+    - RxSwift (= 6.0.0-rc.2)
+  - RxRelay (6.0.0-rc.2):
+    - RxSwift (= 6.0.0-rc.2)
+  - RxSwift (6.0.0-rc.2)
+  - SnapKit (5.0.1)
+  - Starscream (4.0.4)
+  - TeslaSwift (7.3.0):
+    - TeslaSwift/Core (= 7.3.0)
+  - TeslaSwift/Combine (7.3.0):
+    - TeslaSwift/Core
+  - TeslaSwift/Core (7.3.0)
+  - TeslaSwift/PromiseKit (7.3.0):
+    - PromiseKit/CorePromise (~> 6)
+    - TeslaSwift/Core
+  - TeslaSwift/Rx (7.3.0):
+    - RxCocoa (= 6.0.0-rc.2)
+    - RxSwift (= 6.0.0-rc.2)
+    - TeslaSwift/Core
+  - TeslaSwift/Streaming (7.3.0):
+    - Starscream (~> 4)
+    - TeslaSwift/Core
+
+DEPENDENCIES:
+  - NotificationBannerSwift (~> 3.0.0)
+  - TeslaSwift (~> 7)
+  - TeslaSwift/Combine (~> 7)
+  - TeslaSwift/PromiseKit (~> 7)
+  - TeslaSwift/Rx (~> 7)
+  - TeslaSwift/Streaming (~> 7)
+
+SPEC REPOS:
+  trunk:
+    - MarqueeLabel
+    - NotificationBannerSwift
+    - PromiseKit
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+    - SnapKit
+    - Starscream
+    - TeslaSwift
+
+SPEC CHECKSUMS:
+  MarqueeLabel: 00cc0bcd087111dca575878b3531af980559707d
+  NotificationBannerSwift: 7021be2338f8f29cf424b0aca43da462bf9e2a1a
+  PromiseKit: ee485df3d4dc570594d7e7aecae6352697dc6a4c
+  RxCocoa: 38445a25751be5907f52f7ea02c137f52ce2e7f2
+  RxRelay: b9e2483e83f46e4e7bf1234c6fe418e5c2eaf825
+  RxSwift: ada35be6643bedf6881cdbd6bbfb27aeea527670
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  Starscream: 5178aed56b316f13fa3bc55694e583d35dd414d9
+  TeslaSwift: 1361d5001e1ac226e97f6c750c08272781e4fe29
+
+PODFILE CHECKSUM: 017c592ce0c510ca9543afbd8793fdabe7f5efe8
+
+COCOAPODS: 1.11.3
