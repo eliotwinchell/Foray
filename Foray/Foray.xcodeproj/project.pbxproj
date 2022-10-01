@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		731B14E428E8C1EC00925048 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731B14E328E8C1EC00925048 /* AppDelegate.swift */; };
 		731B14E628E8C1EC00925048 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731B14E528E8C1EC00925048 /* SceneDelegate.swift */; };
-		731B14E828E8C1EC00925048 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731B14E728E8C1EC00925048 /* ViewController.swift */; };
 		731B14EB28E8C1EC00925048 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 731B14E928E8C1EC00925048 /* Main.storyboard */; };
 		731B14EE28E8C1EC00925048 /* Foray.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 731B14EC28E8C1EC00925048 /* Foray.xcdatamodeld */; };
 		731B14F028E8C1ED00925048 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 731B14EF28E8C1ED00925048 /* Assets.xcassets */; };
@@ -17,6 +16,8 @@
 		731B14FE28E8C1ED00925048 /* ForayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731B14FD28E8C1ED00925048 /* ForayTests.swift */; };
 		731B150828E8C1ED00925048 /* ForayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731B150728E8C1ED00925048 /* ForayUITests.swift */; };
 		731B150A28E8C1ED00925048 /* ForayUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731B150928E8C1ED00925048 /* ForayUITestsLaunchTests.swift */; };
+		7398861B28E8CB59007734B5 /* LoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7398861A28E8CB59007734B5 /* LoadingVC.swift */; };
+		7398861D28E8CB90007734B5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7398861C28E8CB90007734B5 /* Constants.swift */; };
 		CA282CAAE298CCF0ECE84F46 /* Pods_Foray.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FDBA4831DE6E042D3D652A /* Pods_Foray.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,7 +44,6 @@
 		731B14E028E8C1EC00925048 /* Foray.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Foray.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		731B14E328E8C1EC00925048 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		731B14E528E8C1EC00925048 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		731B14E728E8C1EC00925048 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		731B14EA28E8C1EC00925048 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		731B14ED28E8C1EC00925048 /* Foray.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Foray.xcdatamodel; sourceTree = "<group>"; };
 		731B14EF28E8C1ED00925048 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -54,6 +54,8 @@
 		731B150328E8C1ED00925048 /* ForayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ForayUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		731B150728E8C1ED00925048 /* ForayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForayUITests.swift; sourceTree = "<group>"; };
 		731B150928E8C1ED00925048 /* ForayUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForayUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		7398861A28E8CB59007734B5 /* LoadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingVC.swift; sourceTree = "<group>"; };
+		7398861C28E8CB90007734B5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AED653EC5A0509A738326A30 /* Pods-Foray.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Foray.release.xcconfig"; path = "Target Support Files/Pods-Foray/Pods-Foray.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,14 +118,13 @@
 		731B14E228E8C1EC00925048 /* Foray */ = {
 			isa = PBXGroup;
 			children = (
+				7398861C28E8CB90007734B5 /* Constants.swift */,
 				731B14E328E8C1EC00925048 /* AppDelegate.swift */,
 				731B14E528E8C1EC00925048 /* SceneDelegate.swift */,
-				731B14E728E8C1EC00925048 /* ViewController.swift */,
-				731B14E928E8C1EC00925048 /* Main.storyboard */,
 				731B14EF28E8C1ED00925048 /* Assets.xcassets */,
-				731B14F128E8C1ED00925048 /* LaunchScreen.storyboard */,
 				731B14F428E8C1ED00925048 /* Info.plist */,
 				731B14EC28E8C1EC00925048 /* Foray.xcdatamodeld */,
+				7398861628E8CB0B007734B5 /* UI */,
 			);
 			path = Foray;
 			sourceTree = "<group>";
@@ -143,6 +144,32 @@
 				731B150928E8C1ED00925048 /* ForayUITestsLaunchTests.swift */,
 			);
 			path = ForayUITests;
+			sourceTree = "<group>";
+		};
+		7398861628E8CB0B007734B5 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				7398861928E8CB44007734B5 /* ViewControllers */,
+				7398861828E8CB3C007734B5 /* Views */,
+				731B14E928E8C1EC00925048 /* Main.storyboard */,
+				731B14F128E8C1ED00925048 /* LaunchScreen.storyboard */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		7398861828E8CB3C007734B5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7398861928E8CB44007734B5 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				7398861A28E8CB59007734B5 /* LoadingVC.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		E60784548E4E93775F856894 /* Pods */ = {
@@ -329,10 +356,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				731B14E828E8C1EC00925048 /* ViewController.swift in Sources */,
 				731B14E428E8C1EC00925048 /* AppDelegate.swift in Sources */,
 				731B14E628E8C1EC00925048 /* SceneDelegate.swift in Sources */,
 				731B14EE28E8C1EC00925048 /* Foray.xcdatamodeld in Sources */,
+				7398861B28E8CB59007734B5 /* LoadingVC.swift in Sources */,
+				7398861D28E8CB90007734B5 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

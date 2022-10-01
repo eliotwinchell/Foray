@@ -1,15 +1,33 @@
 {
-  "dependencies": {
-    "express": "^4.18.1"
-  },
-  "name": "server",
+  "name": "Foray Server",
   "version": "1.0.0",
+  "description": "Server for Foray, handles chargers and route planning",
   "main": "index.js",
-  "devDependencies": {},
+  "type": "Commonjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node .",
+    "build": "babel --delete-dir-on-start --out-dir dist --copy-files --ignore \"**/__tests__/**,**/__mocks__/**\" --no-copy-ignored src"
   },
   "author": "",
-  "license": "ISC",
-  "description": ""
+  "license": "",
+  "devDependencies": {
+    "@babel/cli": "^7.16.8",
+    "@babel/core": "^7.16.12",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-typescript": "^7.16.7",
+    "@babel/register": "^7.16.9",
+    "babel-loader": "^8.2.3",
+    "jest": "^27.4.7",
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "axios": "^0.25.0",
+    "dotenv": "^14.3.2",
+    "express": "^4.17.2",
+    "express-async-errors": "^3.1.1",
+    "loglevel": "^1.8.0",
+    "mongoose": "^6.1.8",
+    "passport": "^0.6.0"
+  }
 }
