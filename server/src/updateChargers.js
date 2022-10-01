@@ -51,9 +51,9 @@ function fetchNewChargersAndInsert() {
         id: charger.id,
         name: charger.name,
         status: charger.status, 
-        gps: {
-          latitude: charger.gps.latitude,
-          longitude: charger.gps.longitude
+        location: {
+          type: "Point",
+          coordinates: [charger.gps.longitude, charger.gps.latitude]
         },
         stallCount: charger.stallCount,
         powerKilowatt: charger.powerKilowatt
