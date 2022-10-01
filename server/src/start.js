@@ -1,12 +1,14 @@
-import express from 'express'
-import 'express-async-errors'
-import logger from 'loglevel'
-import { getRoutes } from './routes'
+const express = require('express');
+const express_async_errors = require('express-async-errors');
+const loglevel = require('loglevel');
+const routes = require('./routes');
 
 function startServer({port = process.env.PORT} = {}) {
-  const app = express()
+  const app = express();
 
-  app.use('/api/chargers', getRoutes())
+  console.log("starting server");
+
+  app.use('/api/chargers', routes.getRoutes())
 
   app.use(errorMiddleware)
 
@@ -14,7 +16,7 @@ function startServer({port = process.env.PORT} = {}) {
   // express server
   return new Promise(resolve => {
     const server = app.listen(port, () => {
-      logger.info(`Listening on port ${server.address().port}`)
+      console.log('Listening on port 3000');
 
       // this block of code turns `server.close` into a promise API
       const originalClose = server.close.bind(server)
@@ -80,4 +82,4 @@ function setupCloseOnExit(server) {
   process.on('uncaughtException', exitHandler.bind(null, {exit: true}))
 }
 
-export {startServer}
+module.exports.startServer = startServer;
