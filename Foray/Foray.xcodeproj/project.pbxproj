@@ -7,68 +7,75 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7346CA9428E8B4DA00F14232 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7346CA9328E8B4DA00F14232 /* AppDelegate.swift */; };
-		7346CA9628E8B4DA00F14232 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7346CA9528E8B4DA00F14232 /* SceneDelegate.swift */; };
-		7346CA9828E8B4DA00F14232 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7346CA9728E8B4DA00F14232 /* ViewController.swift */; };
-		7346CA9B28E8B4DA00F14232 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7346CA9928E8B4DA00F14232 /* Main.storyboard */; };
-		7346CA9E28E8B4DA00F14232 /* Foray.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7346CA9C28E8B4DA00F14232 /* Foray.xcdatamodeld */; };
-		7346CAA028E8B4DB00F14232 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7346CA9F28E8B4DB00F14232 /* Assets.xcassets */; };
-		7346CAA328E8B4DB00F14232 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7346CAA128E8B4DB00F14232 /* LaunchScreen.storyboard */; };
-		7346CAAE28E8B4DB00F14232 /* ForayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7346CAAD28E8B4DB00F14232 /* ForayTests.swift */; };
-		7346CAB828E8B4DB00F14232 /* ForayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7346CAB728E8B4DB00F14232 /* ForayUITests.swift */; };
-		7346CABA28E8B4DB00F14232 /* ForayUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7346CAB928E8B4DB00F14232 /* ForayUITestsLaunchTests.swift */; };
+		731B14E428E8C1EC00925048 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731B14E328E8C1EC00925048 /* AppDelegate.swift */; };
+		731B14E628E8C1EC00925048 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731B14E528E8C1EC00925048 /* SceneDelegate.swift */; };
+		731B14EB28E8C1EC00925048 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 731B14E928E8C1EC00925048 /* Main.storyboard */; };
+		731B14EE28E8C1EC00925048 /* Foray.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 731B14EC28E8C1EC00925048 /* Foray.xcdatamodeld */; };
+		731B14F028E8C1ED00925048 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 731B14EF28E8C1ED00925048 /* Assets.xcassets */; };
+		731B14F328E8C1ED00925048 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 731B14F128E8C1ED00925048 /* LaunchScreen.storyboard */; };
+		731B14FE28E8C1ED00925048 /* ForayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731B14FD28E8C1ED00925048 /* ForayTests.swift */; };
+		731B150828E8C1ED00925048 /* ForayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731B150728E8C1ED00925048 /* ForayUITests.swift */; };
+		731B150A28E8C1ED00925048 /* ForayUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731B150928E8C1ED00925048 /* ForayUITestsLaunchTests.swift */; };
+		7398861B28E8CB59007734B5 /* LoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7398861A28E8CB59007734B5 /* LoadingVC.swift */; };
+		7398861D28E8CB90007734B5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7398861C28E8CB90007734B5 /* Constants.swift */; };
+		CA282CAAE298CCF0ECE84F46 /* Pods_Foray.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FDBA4831DE6E042D3D652A /* Pods_Foray.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		7346CAAA28E8B4DB00F14232 /* PBXContainerItemProxy */ = {
+		731B14FA28E8C1ED00925048 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 7346CA8828E8B4DA00F14232 /* Project object */;
+			containerPortal = 731B14D828E8C1EC00925048 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 7346CA8F28E8B4DA00F14232;
+			remoteGlobalIDString = 731B14DF28E8C1EC00925048;
 			remoteInfo = Foray;
 		};
-		7346CAB428E8B4DB00F14232 /* PBXContainerItemProxy */ = {
+		731B150428E8C1ED00925048 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 7346CA8828E8B4DA00F14232 /* Project object */;
+			containerPortal = 731B14D828E8C1EC00925048 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 7346CA8F28E8B4DA00F14232;
+			remoteGlobalIDString = 731B14DF28E8C1EC00925048;
 			remoteInfo = Foray;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7346CA9028E8B4DA00F14232 /* Foray.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Foray.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		7346CA9328E8B4DA00F14232 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7346CA9528E8B4DA00F14232 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7346CA9728E8B4DA00F14232 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		7346CA9A28E8B4DA00F14232 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		7346CA9D28E8B4DA00F14232 /* Foray.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Foray.xcdatamodel; sourceTree = "<group>"; };
-		7346CA9F28E8B4DB00F14232 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		7346CAA228E8B4DB00F14232 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		7346CAA428E8B4DB00F14232 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7346CAA928E8B4DB00F14232 /* ForayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ForayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7346CAAD28E8B4DB00F14232 /* ForayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForayTests.swift; sourceTree = "<group>"; };
-		7346CAB328E8B4DB00F14232 /* ForayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ForayUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7346CAB728E8B4DB00F14232 /* ForayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForayUITests.swift; sourceTree = "<group>"; };
-		7346CAB928E8B4DB00F14232 /* ForayUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForayUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		26A0359BEC4199477FFF870E /* Pods-Foray.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Foray.debug.xcconfig"; path = "Target Support Files/Pods-Foray/Pods-Foray.debug.xcconfig"; sourceTree = "<group>"; };
+		37FDBA4831DE6E042D3D652A /* Pods_Foray.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Foray.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		731B14E028E8C1EC00925048 /* Foray.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Foray.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		731B14E328E8C1EC00925048 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		731B14E528E8C1EC00925048 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		731B14EA28E8C1EC00925048 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		731B14ED28E8C1EC00925048 /* Foray.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Foray.xcdatamodel; sourceTree = "<group>"; };
+		731B14EF28E8C1ED00925048 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		731B14F228E8C1ED00925048 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		731B14F428E8C1ED00925048 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		731B14F928E8C1ED00925048 /* ForayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ForayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		731B14FD28E8C1ED00925048 /* ForayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForayTests.swift; sourceTree = "<group>"; };
+		731B150328E8C1ED00925048 /* ForayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ForayUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		731B150728E8C1ED00925048 /* ForayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForayUITests.swift; sourceTree = "<group>"; };
+		731B150928E8C1ED00925048 /* ForayUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForayUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		7398861A28E8CB59007734B5 /* LoadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingVC.swift; sourceTree = "<group>"; };
+		7398861C28E8CB90007734B5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		AED653EC5A0509A738326A30 /* Pods-Foray.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Foray.release.xcconfig"; path = "Target Support Files/Pods-Foray/Pods-Foray.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		7346CA8D28E8B4DA00F14232 /* Frameworks */ = {
+		731B14DD28E8C1EC00925048 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA282CAAE298CCF0ECE84F46 /* Pods_Foray.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		731B14F628E8C1ED00925048 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7346CAA628E8B4DB00F14232 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7346CAB028E8B4DB00F14232 /* Frameworks */ = {
+		731B150028E8C1ED00925048 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -78,68 +85,114 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7346CA8728E8B4DA00F14232 = {
+		1E5E1DB6F489F2FDA6ABA619 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7346CA9228E8B4DA00F14232 /* Foray */,
-				7346CAAC28E8B4DB00F14232 /* ForayTests */,
-				7346CAB628E8B4DB00F14232 /* ForayUITests */,
-				7346CA9128E8B4DA00F14232 /* Products */,
+				37FDBA4831DE6E042D3D652A /* Pods_Foray.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		731B14D728E8C1EC00925048 = {
+			isa = PBXGroup;
+			children = (
+				731B14E228E8C1EC00925048 /* Foray */,
+				731B14FC28E8C1ED00925048 /* ForayTests */,
+				731B150628E8C1ED00925048 /* ForayUITests */,
+				731B14E128E8C1EC00925048 /* Products */,
+				E60784548E4E93775F856894 /* Pods */,
+				1E5E1DB6F489F2FDA6ABA619 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		7346CA9128E8B4DA00F14232 /* Products */ = {
+		731B14E128E8C1EC00925048 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7346CA9028E8B4DA00F14232 /* Foray.app */,
-				7346CAA928E8B4DB00F14232 /* ForayTests.xctest */,
-				7346CAB328E8B4DB00F14232 /* ForayUITests.xctest */,
+				731B14E028E8C1EC00925048 /* Foray.app */,
+				731B14F928E8C1ED00925048 /* ForayTests.xctest */,
+				731B150328E8C1ED00925048 /* ForayUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		7346CA9228E8B4DA00F14232 /* Foray */ = {
+		731B14E228E8C1EC00925048 /* Foray */ = {
 			isa = PBXGroup;
 			children = (
-				7346CA9328E8B4DA00F14232 /* AppDelegate.swift */,
-				7346CA9528E8B4DA00F14232 /* SceneDelegate.swift */,
-				7346CA9728E8B4DA00F14232 /* ViewController.swift */,
-				7346CA9928E8B4DA00F14232 /* Main.storyboard */,
-				7346CA9F28E8B4DB00F14232 /* Assets.xcassets */,
-				7346CAA128E8B4DB00F14232 /* LaunchScreen.storyboard */,
-				7346CAA428E8B4DB00F14232 /* Info.plist */,
-				7346CA9C28E8B4DA00F14232 /* Foray.xcdatamodeld */,
+				7398861C28E8CB90007734B5 /* Constants.swift */,
+				731B14E328E8C1EC00925048 /* AppDelegate.swift */,
+				731B14E528E8C1EC00925048 /* SceneDelegate.swift */,
+				731B14EF28E8C1ED00925048 /* Assets.xcassets */,
+				731B14F428E8C1ED00925048 /* Info.plist */,
+				731B14EC28E8C1EC00925048 /* Foray.xcdatamodeld */,
+				7398861628E8CB0B007734B5 /* UI */,
 			);
 			path = Foray;
 			sourceTree = "<group>";
 		};
-		7346CAAC28E8B4DB00F14232 /* ForayTests */ = {
+		731B14FC28E8C1ED00925048 /* ForayTests */ = {
 			isa = PBXGroup;
 			children = (
-				7346CAAD28E8B4DB00F14232 /* ForayTests.swift */,
+				731B14FD28E8C1ED00925048 /* ForayTests.swift */,
 			);
 			path = ForayTests;
 			sourceTree = "<group>";
 		};
-		7346CAB628E8B4DB00F14232 /* ForayUITests */ = {
+		731B150628E8C1ED00925048 /* ForayUITests */ = {
 			isa = PBXGroup;
 			children = (
-				7346CAB728E8B4DB00F14232 /* ForayUITests.swift */,
-				7346CAB928E8B4DB00F14232 /* ForayUITestsLaunchTests.swift */,
+				731B150728E8C1ED00925048 /* ForayUITests.swift */,
+				731B150928E8C1ED00925048 /* ForayUITestsLaunchTests.swift */,
 			);
 			path = ForayUITests;
+			sourceTree = "<group>";
+		};
+		7398861628E8CB0B007734B5 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				7398861928E8CB44007734B5 /* ViewControllers */,
+				7398861828E8CB3C007734B5 /* Views */,
+				731B14E928E8C1EC00925048 /* Main.storyboard */,
+				731B14F128E8C1ED00925048 /* LaunchScreen.storyboard */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		7398861828E8CB3C007734B5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7398861928E8CB44007734B5 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				7398861A28E8CB59007734B5 /* LoadingVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E60784548E4E93775F856894 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				26A0359BEC4199477FFF870E /* Pods-Foray.debug.xcconfig */,
+				AED653EC5A0509A738326A30 /* Pods-Foray.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7346CA8F28E8B4DA00F14232 /* Foray */ = {
+		731B14DF28E8C1EC00925048 /* Foray */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7346CABD28E8B4DB00F14232 /* Build configuration list for PBXNativeTarget "Foray" */;
+			buildConfigurationList = 731B150D28E8C1ED00925048 /* Build configuration list for PBXNativeTarget "Foray" */;
 			buildPhases = (
-				7346CA8C28E8B4DA00F14232 /* Sources */,
-				7346CA8D28E8B4DA00F14232 /* Frameworks */,
-				7346CA8E28E8B4DA00F14232 /* Resources */,
+				63DA1E5C270C16D2F38A2D61 /* [CP] Check Pods Manifest.lock */,
+				731B14DC28E8C1EC00925048 /* Sources */,
+				731B14DD28E8C1EC00925048 /* Frameworks */,
+				731B14DE28E8C1EC00925048 /* Resources */,
+				0AC78AC4B9D7C5DC5B85E07E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -147,69 +200,69 @@
 			);
 			name = Foray;
 			productName = Foray;
-			productReference = 7346CA9028E8B4DA00F14232 /* Foray.app */;
+			productReference = 731B14E028E8C1EC00925048 /* Foray.app */;
 			productType = "com.apple.product-type.application";
 		};
-		7346CAA828E8B4DB00F14232 /* ForayTests */ = {
+		731B14F828E8C1ED00925048 /* ForayTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7346CAC028E8B4DB00F14232 /* Build configuration list for PBXNativeTarget "ForayTests" */;
+			buildConfigurationList = 731B151028E8C1ED00925048 /* Build configuration list for PBXNativeTarget "ForayTests" */;
 			buildPhases = (
-				7346CAA528E8B4DB00F14232 /* Sources */,
-				7346CAA628E8B4DB00F14232 /* Frameworks */,
-				7346CAA728E8B4DB00F14232 /* Resources */,
+				731B14F528E8C1ED00925048 /* Sources */,
+				731B14F628E8C1ED00925048 /* Frameworks */,
+				731B14F728E8C1ED00925048 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				7346CAAB28E8B4DB00F14232 /* PBXTargetDependency */,
+				731B14FB28E8C1ED00925048 /* PBXTargetDependency */,
 			);
 			name = ForayTests;
 			productName = ForayTests;
-			productReference = 7346CAA928E8B4DB00F14232 /* ForayTests.xctest */;
+			productReference = 731B14F928E8C1ED00925048 /* ForayTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		7346CAB228E8B4DB00F14232 /* ForayUITests */ = {
+		731B150228E8C1ED00925048 /* ForayUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7346CAC328E8B4DB00F14232 /* Build configuration list for PBXNativeTarget "ForayUITests" */;
+			buildConfigurationList = 731B151328E8C1ED00925048 /* Build configuration list for PBXNativeTarget "ForayUITests" */;
 			buildPhases = (
-				7346CAAF28E8B4DB00F14232 /* Sources */,
-				7346CAB028E8B4DB00F14232 /* Frameworks */,
-				7346CAB128E8B4DB00F14232 /* Resources */,
+				731B14FF28E8C1ED00925048 /* Sources */,
+				731B150028E8C1ED00925048 /* Frameworks */,
+				731B150128E8C1ED00925048 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				7346CAB528E8B4DB00F14232 /* PBXTargetDependency */,
+				731B150528E8C1ED00925048 /* PBXTargetDependency */,
 			);
 			name = ForayUITests;
 			productName = ForayUITests;
-			productReference = 7346CAB328E8B4DB00F14232 /* ForayUITests.xctest */;
+			productReference = 731B150328E8C1ED00925048 /* ForayUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		7346CA8828E8B4DA00F14232 /* Project object */ = {
+		731B14D828E8C1EC00925048 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
-					7346CA8F28E8B4DA00F14232 = {
+					731B14DF28E8C1EC00925048 = {
 						CreatedOnToolsVersion = 14.0.1;
 					};
-					7346CAA828E8B4DB00F14232 = {
+					731B14F828E8C1ED00925048 = {
 						CreatedOnToolsVersion = 14.0.1;
-						TestTargetID = 7346CA8F28E8B4DA00F14232;
+						TestTargetID = 731B14DF28E8C1EC00925048;
 					};
-					7346CAB228E8B4DB00F14232 = {
+					731B150228E8C1ED00925048 = {
 						CreatedOnToolsVersion = 14.0.1;
-						TestTargetID = 7346CA8F28E8B4DA00F14232;
+						TestTargetID = 731B14DF28E8C1EC00925048;
 					};
 				};
 			};
-			buildConfigurationList = 7346CA8B28E8B4DA00F14232 /* Build configuration list for PBXProject "Foray" */;
+			buildConfigurationList = 731B14DB28E8C1EC00925048 /* Build configuration list for PBXProject "Foray" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -217,37 +270,37 @@
 				en,
 				Base,
 			);
-			mainGroup = 7346CA8728E8B4DA00F14232;
-			productRefGroup = 7346CA9128E8B4DA00F14232 /* Products */;
+			mainGroup = 731B14D728E8C1EC00925048;
+			productRefGroup = 731B14E128E8C1EC00925048 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7346CA8F28E8B4DA00F14232 /* Foray */,
-				7346CAA828E8B4DB00F14232 /* ForayTests */,
-				7346CAB228E8B4DB00F14232 /* ForayUITests */,
+				731B14DF28E8C1EC00925048 /* Foray */,
+				731B14F828E8C1ED00925048 /* ForayTests */,
+				731B150228E8C1ED00925048 /* ForayUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		7346CA8E28E8B4DA00F14232 /* Resources */ = {
+		731B14DE28E8C1EC00925048 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7346CAA328E8B4DB00F14232 /* LaunchScreen.storyboard in Resources */,
-				7346CAA028E8B4DB00F14232 /* Assets.xcassets in Resources */,
-				7346CA9B28E8B4DA00F14232 /* Main.storyboard in Resources */,
+				731B14F328E8C1ED00925048 /* LaunchScreen.storyboard in Resources */,
+				731B14F028E8C1ED00925048 /* Assets.xcassets in Resources */,
+				731B14EB28E8C1EC00925048 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7346CAA728E8B4DB00F14232 /* Resources */ = {
+		731B14F728E8C1ED00925048 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7346CAB128E8B4DB00F14232 /* Resources */ = {
+		731B150128E8C1ED00925048 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -256,63 +309,106 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0AC78AC4B9D7C5DC5B85E07E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Foray/Pods-Foray-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Foray/Pods-Foray-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Foray/Pods-Foray-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		63DA1E5C270C16D2F38A2D61 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Foray-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		7346CA8C28E8B4DA00F14232 /* Sources */ = {
+		731B14DC28E8C1EC00925048 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7346CA9828E8B4DA00F14232 /* ViewController.swift in Sources */,
-				7346CA9428E8B4DA00F14232 /* AppDelegate.swift in Sources */,
-				7346CA9628E8B4DA00F14232 /* SceneDelegate.swift in Sources */,
-				7346CA9E28E8B4DA00F14232 /* Foray.xcdatamodeld in Sources */,
+				731B14E428E8C1EC00925048 /* AppDelegate.swift in Sources */,
+				731B14E628E8C1EC00925048 /* SceneDelegate.swift in Sources */,
+				731B14EE28E8C1EC00925048 /* Foray.xcdatamodeld in Sources */,
+				7398861B28E8CB59007734B5 /* LoadingVC.swift in Sources */,
+				7398861D28E8CB90007734B5 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7346CAA528E8B4DB00F14232 /* Sources */ = {
+		731B14F528E8C1ED00925048 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7346CAAE28E8B4DB00F14232 /* ForayTests.swift in Sources */,
+				731B14FE28E8C1ED00925048 /* ForayTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7346CAAF28E8B4DB00F14232 /* Sources */ = {
+		731B14FF28E8C1ED00925048 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7346CABA28E8B4DB00F14232 /* ForayUITestsLaunchTests.swift in Sources */,
-				7346CAB828E8B4DB00F14232 /* ForayUITests.swift in Sources */,
+				731B150A28E8C1ED00925048 /* ForayUITestsLaunchTests.swift in Sources */,
+				731B150828E8C1ED00925048 /* ForayUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		7346CAAB28E8B4DB00F14232 /* PBXTargetDependency */ = {
+		731B14FB28E8C1ED00925048 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 7346CA8F28E8B4DA00F14232 /* Foray */;
-			targetProxy = 7346CAAA28E8B4DB00F14232 /* PBXContainerItemProxy */;
+			target = 731B14DF28E8C1EC00925048 /* Foray */;
+			targetProxy = 731B14FA28E8C1ED00925048 /* PBXContainerItemProxy */;
 		};
-		7346CAB528E8B4DB00F14232 /* PBXTargetDependency */ = {
+		731B150528E8C1ED00925048 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 7346CA8F28E8B4DA00F14232 /* Foray */;
-			targetProxy = 7346CAB428E8B4DB00F14232 /* PBXContainerItemProxy */;
+			target = 731B14DF28E8C1EC00925048 /* Foray */;
+			targetProxy = 731B150428E8C1ED00925048 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		7346CA9928E8B4DA00F14232 /* Main.storyboard */ = {
+		731B14E928E8C1EC00925048 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				7346CA9A28E8B4DA00F14232 /* Base */,
+				731B14EA28E8C1EC00925048 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		7346CAA128E8B4DB00F14232 /* LaunchScreen.storyboard */ = {
+		731B14F128E8C1ED00925048 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				7346CAA228E8B4DB00F14232 /* Base */,
+				731B14F228E8C1ED00925048 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -320,7 +416,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		7346CABB28E8B4DB00F14232 /* Debug */ = {
+		731B150B28E8C1ED00925048 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -380,7 +476,7 @@
 			};
 			name = Debug;
 		};
-		7346CABC28E8B4DB00F14232 /* Release */ = {
+		731B150C28E8C1ED00925048 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -434,27 +530,30 @@
 			};
 			name = Release;
 		};
-		7346CABE28E8B4DB00F14232 /* Debug */ = {
+		731B150E28E8C1ED00925048 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26A0359BEC4199477FFF870E /* Pods-Foray.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = EKR995E6PX;
+				DEVELOPMENT_TEAM = 5N9454K9N2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Foray/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = eliotwinchell.Foray;
+				PRODUCT_BUNDLE_IDENTIFIER = eliotwinchell.ForayApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -462,27 +561,30 @@
 			};
 			name = Debug;
 		};
-		7346CABF28E8B4DB00F14232 /* Release */ = {
+		731B150F28E8C1ED00925048 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AED653EC5A0509A738326A30 /* Pods-Foray.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = EKR995E6PX;
+				DEVELOPMENT_TEAM = 5N9454K9N2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Foray/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = eliotwinchell.Foray;
+				PRODUCT_BUNDLE_IDENTIFIER = eliotwinchell.ForayApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -490,7 +592,7 @@
 			};
 			name = Release;
 		};
-		7346CAC128E8B4DB00F14232 /* Debug */ = {
+		731B151128E8C1ED00925048 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -510,7 +612,7 @@
 			};
 			name = Debug;
 		};
-		7346CAC228E8B4DB00F14232 /* Release */ = {
+		731B151228E8C1ED00925048 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -530,7 +632,7 @@
 			};
 			name = Release;
 		};
-		7346CAC428E8B4DB00F14232 /* Debug */ = {
+		731B151428E8C1ED00925048 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -548,7 +650,7 @@
 			};
 			name = Debug;
 		};
-		7346CAC528E8B4DB00F14232 /* Release */ = {
+		731B151528E8C1ED00925048 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -569,38 +671,38 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7346CA8B28E8B4DA00F14232 /* Build configuration list for PBXProject "Foray" */ = {
+		731B14DB28E8C1EC00925048 /* Build configuration list for PBXProject "Foray" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7346CABB28E8B4DB00F14232 /* Debug */,
-				7346CABC28E8B4DB00F14232 /* Release */,
+				731B150B28E8C1ED00925048 /* Debug */,
+				731B150C28E8C1ED00925048 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7346CABD28E8B4DB00F14232 /* Build configuration list for PBXNativeTarget "Foray" */ = {
+		731B150D28E8C1ED00925048 /* Build configuration list for PBXNativeTarget "Foray" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7346CABE28E8B4DB00F14232 /* Debug */,
-				7346CABF28E8B4DB00F14232 /* Release */,
+				731B150E28E8C1ED00925048 /* Debug */,
+				731B150F28E8C1ED00925048 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7346CAC028E8B4DB00F14232 /* Build configuration list for PBXNativeTarget "ForayTests" */ = {
+		731B151028E8C1ED00925048 /* Build configuration list for PBXNativeTarget "ForayTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7346CAC128E8B4DB00F14232 /* Debug */,
-				7346CAC228E8B4DB00F14232 /* Release */,
+				731B151128E8C1ED00925048 /* Debug */,
+				731B151228E8C1ED00925048 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7346CAC328E8B4DB00F14232 /* Build configuration list for PBXNativeTarget "ForayUITests" */ = {
+		731B151328E8C1ED00925048 /* Build configuration list for PBXNativeTarget "ForayUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7346CAC428E8B4DB00F14232 /* Debug */,
-				7346CAC528E8B4DB00F14232 /* Release */,
+				731B151428E8C1ED00925048 /* Debug */,
+				731B151528E8C1ED00925048 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -608,17 +710,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		7346CA9C28E8B4DA00F14232 /* Foray.xcdatamodeld */ = {
+		731B14EC28E8C1EC00925048 /* Foray.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				7346CA9D28E8B4DA00F14232 /* Foray.xcdatamodel */,
+				731B14ED28E8C1EC00925048 /* Foray.xcdatamodel */,
 			);
-			currentVersion = 7346CA9D28E8B4DA00F14232 /* Foray.xcdatamodel */;
+			currentVersion = 731B14ED28E8C1EC00925048 /* Foray.xcdatamodel */;
 			path = Foray.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
 /* End XCVersionGroup section */
 	};
-	rootObject = 7346CA8828E8B4DA00F14232 /* Project object */;
+	rootObject = 731B14D828E8C1EC00925048 /* Project object */;
 }
