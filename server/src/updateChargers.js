@@ -1,9 +1,11 @@
 const axios = require('axios')
 const mongoose = require('mongoose')
 const dotenv = require('dotenv')
-const ChargerModel = mongoose.model('ChargerModel')
+const chargerSchema = require('./models/charger');
 
-dotenv.config()
+dotenv.config();
+
+const ChargerModel = mongoose.model('Charger', chargerSchema);
 
 if (process.env.NODE_ENV == 'production') {
   mongoose.connect(process.env.MONGO_URL)
