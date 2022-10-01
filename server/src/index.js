@@ -1,6 +1,14 @@
-import logger from 'loglevel'
-import {startServer} from './start'
+const express = require('express');
+const dotenv = require('dotenv');
+const routes = require('./routes/index');
+const app = express();
 
-logger.setLevel('info')
+dotenv.config();
 
-startServer()
+const port = process.env.PORT;
+
+app.use('/api', routes.getRoutes());
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+});

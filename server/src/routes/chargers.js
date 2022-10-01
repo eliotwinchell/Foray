@@ -1,10 +1,12 @@
 // Current route: /api/chargers
 // Test example: /api/chargers?topLeftBounds=-1.00,1.00&bottomRightBounds=1.00,-1.00
-require('express');
+const express = require('express');
+const dotenv = require('dotenv')
+dotenv.config();
 
 function getChargers() {
   const router = express.Router()
-  router.get('', chargersInBounds(req, res))
+  router.get('', chargersInBounds);
 
   return router
 }
@@ -23,7 +25,7 @@ async function chargersInBounds(req, res) {
 
 
 
-  res.send(sum.toString())
+  res.send("test")
 }
 
-// export { getMathRoutes }
+module.exports.getChargers = getChargers;
