@@ -10,24 +10,11 @@ import UIKit
 
 class SearchVC: UITableViewController {
     //
-    // MARK: - Properties
-    //
-    var resultSearchController: UISearchController? = nil
-    
-    //
     // MARK: - View Controller
     //
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let searchVC = storyboard?.instantiateViewController(withIdentifier: "SearchVC") as! SearchVC
-        resultSearchController = UISearchController(searchResultsController: searchVC)
-        resultSearchController?.searchResultsUpdater = searchVC
-        
-        let searchBar = resultSearchController!.searchBar
-        searchBar.sizeToFit()
-        searchBar.placeholder = "Search"
-        navigationItem.titleView = resultSearchController?.searchBar
+    
     }
 }
 
