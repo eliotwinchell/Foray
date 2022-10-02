@@ -53,7 +53,7 @@
         <!--RoutingVC-->
         <scene sceneID="29A-wf-lUA">
             <objects>
-                <viewController id="dkF-ef-PW1" customClass="RoutingVC" customModule="Foray" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="dkF-ef-PW1" customClass="RoutingVC" customModule="Foray" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Uny-yO-5fx">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="761"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -86,7 +86,7 @@
         <!--SearchVC-->
         <scene sceneID="C81-yR-RbA">
             <objects>
-                <tableViewController storyboardIdentifier="SearchVC" id="ENK-Pb-yAt" customClass="SearchVC" customModule="Foray" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SearchVC" modalPresentationStyle="fullScreen" id="ENK-Pb-yAt" customClass="SearchVC" customModule="Foray" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="F7c-mg-I8q">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -336,12 +336,13 @@
         <!--Navigation Controller-->
         <scene sceneID="gQZ-RC-DTf">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xdh-kd-sBE" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="xdh-kd-sBE" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="compass-icon" id="e53-vE-syC"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="det-6V-RkN">
+                    <navigationBar key="navigationBar" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="det-6V-RkN">
                         <rect key="frame" x="0.0" y="47" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

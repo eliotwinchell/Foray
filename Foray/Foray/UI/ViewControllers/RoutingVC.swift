@@ -59,17 +59,28 @@ class RoutingVC: UIViewController, UISearchBarDelegate, MKMapViewDelegate {
         mapView.addGestureRecognizer(pinchGesture)
         
         let searchVC = storyboard?.instantiateViewController(withIdentifier: "SearchVC") as! SearchVC
+        searchVC.modalPresentationStyle = .fullScreen
         resultSearchController = UISearchController(searchResultsController: searchVC)
         resultSearchController?.searchResultsUpdater = searchVC
+        resultSearchController?.modalPresentationStyle = .fullScreen
         
+        navigationController?.modalPresentationStyle = .fullScreen
+        
+        self.view.layoutIfNeeded()
+        self.view.updateConstraintsIfNeeded()
+                
         let searchBar = resultSearchController!.searchBar
-        searchBar.sizeToFit()
+         searchBar.sizeToFit()
         searchBar.placeholder = "Search"
-        navigationItem.titleView = resultSearchController?.searchBar
-        
+        navigationItem.titleView = searchBar
+        navigationController?.modalPresentationStyle = .fullScreen
+
+        self.definesPresentationContext = true
+
         resultSearchController?.hidesNavigationBarDuringPresentation = false
-        resultSearchController?.dimsBackgroundDuringPresentation = true
-        definesPresentationContext = true
+        searchBar.setImage(UIImage(named: "cursor"), for: .search, state: .normal)
+        
+        searchVC.mapView = mapView
     }
     
     override func viewDidAppear(_ animated: Bool) {
