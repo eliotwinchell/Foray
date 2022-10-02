@@ -2,29 +2,42 @@
 // Test example: /api/chargers?topLeftBounds=-1.00,1.00&bottomRightBounds=1.00,-1.00
 const express = require('express');
 const mongoose = require('mongoose');
-const dotenv = require('dotenv')
+const dotenv = require('dotenv');
+const chargerSchema = require('../models/charger');
+
 dotenv.config();
+
+const ChargerModel = mongoose.model('Charger', chargerSchema);
 
 function getChargers() {
   const router = express.Router()
-  router.get('', chargersInBounds);
+  router.post('', chargersInBounds);
 
   return router
 }
 
+// POST: 123.09.420.101:8000/api/chargersWithinBounds
 async function chargersInBounds(req, res) {
-  const lat = req.query.lat;
-  const lng = req.query.lng;
+  const bottomLeftCoords = req.body.bottomLeftCoords;
+  const topRightCoords = req.body.topRightCoords;
+  
+  console.log("endpoint hit");
+  console.log(topRightCoords);
 
-  // Perform Geospatial query for chargers in this rectangular bounds from MongoDB
-
-  // Put chargers in array
-
-  // Send chargers back
-
-
-
-  res.send("hey there")
+  ChargerModel.find({
+    location:{
+      $geoWithin:{
+        $box: [
+          bottomLeftCoords,
+          topRightCoords
+        ]
+      }
+    }
+  })
+  .exec((err, data) => {
+      if (err) console.log(err);
+      res.send(data);
+  });
 }
 
 module.exports.getChargers = getChargers;

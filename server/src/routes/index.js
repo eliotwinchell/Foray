@@ -16,7 +16,7 @@ const db = mongoose.connection;
 function getRoutes() {
   const router = express.Router()
 
-  router.use('/chargers', getChargers())
+  router.use('/chargersWithinBounds', getChargers())
 
   return router
 }
