@@ -17,15 +17,12 @@ enum CustomColor {
 enum Segue {
     static let home = "homeSegue"
     static let login = "loginSegue"
-    static let toCarView = "toCarView"
-    static let noVehicle = "noVehicleSegue"
     static let postLogin = "postLoginSegue"
+    static let noVehicle = "noVehicleSegue"
     static let rootVc = "rootVcSegue"
     static let toLoginFromNoVehicle = "toLoginFromNoVehicleSegue"
     static let loadingScreen = "loadingScreenSegue"
     static let returnNoVehicle = "returnNoVehicleSegue"
-    static let acEmbed = "acEmbedSegue"
-    static let tripPlanner = "tripPlannerSegue"
     static let tabBar = "tabBarSegue"
     static let stream = "streamSegue"
 }
