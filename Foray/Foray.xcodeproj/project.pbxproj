@@ -30,6 +30,7 @@
 		73BAE69428E977280080CF6E /* Charger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BAE69328E977280080CF6E /* Charger.swift */; };
 		73BAE69628E97EAA0080CF6E /* ChargerPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BAE69528E97EAA0080CF6E /* ChargerPin.swift */; };
 		73E1198D28E99E180070F5D6 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E1198C28E99E180070F5D6 /* SearchVC.swift */; };
+		73E1198F28E9D7CD0070F5D6 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E1198E28E9D7CD0070F5D6 /* Route.swift */; };
 		CA282CAAE298CCF0ECE84F46 /* Pods_Foray.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FDBA4831DE6E042D3D652A /* Pods_Foray.framework */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +81,7 @@
 		73BAE69328E977280080CF6E /* Charger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Charger.swift; sourceTree = "<group>"; };
 		73BAE69528E97EAA0080CF6E /* ChargerPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargerPin.swift; sourceTree = "<group>"; };
 		73E1198C28E99E180070F5D6 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		73E1198E28E9D7CD0070F5D6 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		AED653EC5A0509A738326A30 /* Pods-Foray.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Foray.release.xcconfig"; path = "Target Support Files/Pods-Foray/Pods-Foray.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -212,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				73BAE69328E977280080CF6E /* Charger.swift */,
+				73E1198E28E9D7CD0070F5D6 /* Route.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -409,6 +412,7 @@
 				731B14E628E8C1EC00925048 /* SceneDelegate.swift in Sources */,
 				73BAE69428E977280080CF6E /* Charger.swift in Sources */,
 				7398862D28E91C1D007734B5 /* SettingsListCell.swift in Sources */,
+				73E1198F28E9D7CD0070F5D6 /* Route.swift in Sources */,
 				7398863128E91E2F007734B5 /* NoVehicleVC.swift in Sources */,
 				7398862728E91851007734B5 /* StatisticsVC.swift in Sources */,
 				731B14EE28E8C1EC00925048 /* Foray.xcdatamodeld in Sources */,

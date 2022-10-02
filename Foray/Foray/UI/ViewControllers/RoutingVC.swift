@@ -11,10 +11,15 @@ import MapKit
 import TeslaSwift
 import NotificationBannerSwift
 
+protocol HandleMapSearch {
+    func dropPinZoomIn(placemark: MKPlacemark)
+}
+
 class RoutingVC: UIViewController, UISearchBarDelegate, MKMapViewDelegate {
     @IBOutlet var mapView: MKMapView!
     
     var resultSearchController: UISearchController? = nil
+    var selectedPin: MKPlacemark? = nil
     
     private var networkVehicle: Vehicle?
     private var vehicleLocation: DriveState? {
@@ -42,7 +47,7 @@ class RoutingVC: UIViewController, UISearchBarDelegate, MKMapViewDelegate {
 
         overrideUserInterfaceStyle = .dark
         view.backgroundColor = CustomColor.customBackgroundColor
-        
+                
         let defaults = UserDefaults.standard
         vehicleID = defaults.string(forKey: "vehicleID") ?? "NA"
         
@@ -63,6 +68,8 @@ class RoutingVC: UIViewController, UISearchBarDelegate, MKMapViewDelegate {
         resultSearchController = UISearchController(searchResultsController: searchVC)
         resultSearchController?.searchResultsUpdater = searchVC
         resultSearchController?.modalPresentationStyle = .fullScreen
+        
+        searchVC.handleMapSearchDelegate = self
         
         navigationController?.modalPresentationStyle = .fullScreen
         
@@ -169,6 +176,62 @@ private extension MKMapView {
   }
 }
 
+extension RoutingVC: HandleMapSearch {
+    func dropPinZoomIn(placemark: MKPlacemark){
+        // center map between the start and end points
+
+        let destination: MKPlacemark = placemark
+        let annotation = MKPointAnnotation()
+        print(vehicleLocation!.latitude!)
+        print(vehicleLocation!.longitude!)
+        print(destination.coordinate.latitude)
+        print(destination.coordinate.longitude)
+        if let vehicleCoords = vehicleLocation {
+            let rawString = "https://api.tomtom.com/routing/1/calculateRoute/\(vehicleCoords.latitude!)%2\(vehicleCoords.longitude!)%3\(destination.coordinate.latitude)%2\(destination.coordinate.longitude)/json?key=ukGnJX18sgSGk7miWLxlL2PPbyuDhNsH"
+            let tomtomUrl = URL(string: rawString)
+            
+            print(tomtomUrl.absoluteURL)
+            var request = URLRequest(url: tomtomUrl!.absoluteURL)
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+             
+            let task = URLSession.shared.dataTask(with: tomtomUrl!) { data, response, error in
+                if let data = data {
+                    if let welcome8 = try? JSONDecoder().decode(Welcome8.self, from: data) {
+                        let legs = welcome8.routes[0].legs
+                        for i in 0..<legs.count {
+                            print(legs[i])
+//                            let annotation = MKPointAnnotation()
+//                            annotation.coordinate = CLLocationCoordinate2D(latitude: charger.location[1], longitude: charger.location[0])
+//                            annotation.subtitle = String(format: "Supercharger \n Stalls: %d", charger.stallCount)
+//                            self.mapView.addAnnotation(annotation)
+                        }
+                    } else {
+                        print("no chargers")
+                    }
+                } else if let error = error {
+                    print("HTTP request failed \(error)")
+                }
+            }
+            task.resume()
+        }
+        
+//
+//        // clear existing pins
+////        mapView.removeAnnotations(mapView.annotations)
+//        let annotation = MKPointAnnotation()
+//        annotation.coordinate = placemark.coordinate
+//        annotation.title = placemark.name
+//        if let city = placemark.locality,
+//        let state = placemark.administrativeArea {
+//            annotation.subtitle = "(city) (state)"
+//        }
+//        mapView.addAnnotation(annotation)
+//        let span = (0.05, 0.05)
+//        let region = (placemark.coordinate, span)
+        //mapView.setRegion(region, animated: true)
+    }
+}
+
 extension RoutingVC: UIGestureRecognizerDelegate {
     func requestChargers() {
         let topRightLat = String(format: "%.5f", mapView.region.center.latitude + mapView.region.span.latitudeDelta / 2)
@@ -220,5 +283,31 @@ extension RoutingVC: UIGestureRecognizerDelegate {
         if sender.state == .ended {
             requestChargers()
         }
+    }
+}
+
+extension RoutingVC {
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView?{
+        if annotation is MKUserLocation {
+            //return nil so map view draws "blue dot" for standard user location
+            return nil
+        }
+        
+        let reuseId = "pin"
+        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
+        
+        pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+        pinView?.pinTintColor = .blue
+        pinView?.canShowCallout = true
+        
+        let smallSquare = CGSize(width: 30, height: 30)
+        
+        let button = UIButton(frame: CGRect(origin: CGPointZero, size: smallSquare))
+        button.setBackgroundImage(UIImage(named: "car"), for: [])
+        button.addTarget(self, action: Selector(("getDirections")), for: .touchUpInside)
+        
+        pinView?.leftCalloutAccessoryView = button
+        
+        return pinView
     }
 }
