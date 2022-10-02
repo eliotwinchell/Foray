@@ -29,6 +29,7 @@
 		7398863128E91E2F007734B5 /* NoVehicleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7398863028E91E2F007734B5 /* NoVehicleVC.swift */; };
 		73BAE69428E977280080CF6E /* Charger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BAE69328E977280080CF6E /* Charger.swift */; };
 		73BAE69628E97EAA0080CF6E /* ChargerPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BAE69528E97EAA0080CF6E /* ChargerPin.swift */; };
+		73E1198D28E99E180070F5D6 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E1198C28E99E180070F5D6 /* SearchVC.swift */; };
 		CA282CAAE298CCF0ECE84F46 /* Pods_Foray.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FDBA4831DE6E042D3D652A /* Pods_Foray.framework */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +79,7 @@
 		7398863028E91E2F007734B5 /* NoVehicleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoVehicleVC.swift; sourceTree = "<group>"; };
 		73BAE69328E977280080CF6E /* Charger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Charger.swift; sourceTree = "<group>"; };
 		73BAE69528E97EAA0080CF6E /* ChargerPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargerPin.swift; sourceTree = "<group>"; };
+		73E1198C28E99E180070F5D6 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		AED653EC5A0509A738326A30 /* Pods-Foray.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Foray.release.xcconfig"; path = "Target Support Files/Pods-Foray/Pods-Foray.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -201,6 +203,7 @@
 				7398862828E91870007734B5 /* SettingsVC.swift */,
 				7398862A28E91AE0007734B5 /* LoginVC.swift */,
 				7398863028E91E2F007734B5 /* NoVehicleVC.swift */,
+				73E1198C28E99E180070F5D6 /* SearchVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				7398861B28E8CB59007734B5 /* LoadingVC.swift in Sources */,
 				7398861D28E8CB90007734B5 /* Constants.swift in Sources */,
 				73BAE69628E97EAA0080CF6E /* ChargerPin.swift in Sources */,
+				73E1198D28E99E180070F5D6 /* SearchVC.swift in Sources */,
 				7398862928E91870007734B5 /* SettingsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -593,6 +597,7 @@
 				DEVELOPMENT_TEAM = 5N9454K9N2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Foray/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "EV Compass";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -605,7 +610,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = eliotwinchell.ForayApp;
+				PRODUCT_BUNDLE_IDENTIFIER = eliotwinchell.EVCompass;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -624,6 +629,7 @@
 				DEVELOPMENT_TEAM = 5N9454K9N2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Foray/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "EV Compass";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -636,7 +642,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = eliotwinchell.ForayApp;
+				PRODUCT_BUNDLE_IDENTIFIER = eliotwinchell.EVCompass;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

@@ -64,19 +64,12 @@
                                     <outlet property="delegate" destination="dkF-ef-PW1" id="nYa-DZ-Yyo"/>
                                 </connections>
                             </mapView>
-                            <searchBar contentMode="redraw" barStyle="black" searchBarStyle="minimal" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="VZ1-dN-ADP">
-                                <rect key="frame" x="0.0" y="40" width="390" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="v3c-0F-Gkk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="VZ1-dN-ADP" firstAttribute="top" secondItem="Uny-yO-5fx" secondAttribute="top" constant="40" id="5r2-MH-Hrs"/>
                             <constraint firstItem="DhY-m3-hiO" firstAttribute="top" secondItem="Uny-yO-5fx" secondAttribute="top" id="Gbm-lp-lT7"/>
-                            <constraint firstAttribute="trailing" secondItem="VZ1-dN-ADP" secondAttribute="trailing" id="RDH-y7-XVE"/>
                             <constraint firstItem="DhY-m3-hiO" firstAttribute="leading" secondItem="v3c-0F-Gkk" secondAttribute="leading" id="aMn-Dq-WXx"/>
-                            <constraint firstItem="VZ1-dN-ADP" firstAttribute="leading" secondItem="Uny-yO-5fx" secondAttribute="leading" id="bed-od-bxe"/>
                             <constraint firstItem="v3c-0F-Gkk" firstAttribute="trailing" secondItem="DhY-m3-hiO" secondAttribute="trailing" id="hhv-ao-PBO"/>
                             <constraint firstItem="v3c-0F-Gkk" firstAttribute="bottom" secondItem="DhY-m3-hiO" secondAttribute="bottom" constant="25" id="m4N-5b-UHe"/>
                         </constraints>
@@ -89,6 +82,50 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cxk-7P-P4h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2557" y="-374"/>
+        </scene>
+        <!--SearchVC-->
+        <scene sceneID="C81-yR-RbA">
+            <objects>
+                <tableViewController storyboardIdentifier="SearchVC" id="ENK-Pb-yAt" customClass="SearchVC" customModule="Foray" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="F7c-mg-I8q">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="oCP-Gu-XPa" detailTextLabel="1vE-dF-smK" style="IBUITableViewCellStyleSubtitle" id="Fbl-yR-64Z">
+                                <rect key="frame" x="0.0" y="50" width="390" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Fbl-yR-64Z" id="0jW-jz-ehS">
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oCP-Gu-XPa">
+                                            <rect key="frame" x="20" y="6.0000000000000009" width="25" height="14.333333333333334"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1vE-dF-smK">
+                                            <rect key="frame" x="19.999999999999996" y="22.333333333333336" width="43.666666666666664" height="14.333333333333334"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ENK-Pb-yAt" id="3sT-io-wEn"/>
+                            <outlet property="delegate" destination="ENK-Pb-yAt" id="6ai-vi-bHQ"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qhi-bE-BVG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3445" y="-375"/>
         </scene>
         <!--Tab BarVC-->
         <scene sceneID="BXa-83-Rql">
@@ -227,7 +264,7 @@
                                     <action selector="webLoginAction:" destination="TmD-0o-IIL" eventType="touchUpInside" id="Z7e-VY-ebE"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tesla Keychain" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eGd-3D-DUB">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EV Compass" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eGd-3D-DUB">
                                 <rect key="frame" x="100" y="427" width="190" height="20"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -298,7 +335,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="NeJ-NB-9yM"/>
+        <segue reference="KZG-FR-vny"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="compass-icon" width="31" height="31"/>
