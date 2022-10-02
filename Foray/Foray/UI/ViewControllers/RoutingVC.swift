@@ -11,15 +11,16 @@ import MapKit
 import TeslaSwift
 import NotificationBannerSwift
 
-class RoutingVC: UIViewController, UISearchBarDelegate {
+class RoutingVC: UIViewController, UISearchBarDelegate, MKMapViewDelegate {
     @IBOutlet var mapView: MKMapView!
     
     private var networkVehicle: Vehicle?
     private var vehicleLocation: DriveState? {
         didSet {
             let initialLocation = CLLocation(latitude: vehicleLocation?.latitude ?? 35.2785431, longitude: vehicleLocation?.longitude ?? -120.7514578)
-            let vehiclePin = VehiclePin(
-                coordinate: CLLocationCoordinate2D(latitude: vehicleLocation?.latitude ?? 35.2785431, longitude: vehicleLocation?.longitude ?? -120.75145781))
+            let vehiclePin = MKPointAnnotation()
+            vehiclePin.coordinate = CLLocationCoordinate2D(latitude: vehicleLocation?.latitude ?? 35.2785431, longitude: vehicleLocation?.longitude ?? -120.75145781)
+            vehiclePin.subtitle = "Your Vehicle"
             
             DispatchQueue.main.async {
                 self.mapView.centerToLocation(initialLocation)
@@ -31,7 +32,9 @@ class RoutingVC: UIViewController, UISearchBarDelegate {
     var searchBar: UISearchBar? = nil
     var vehicleID: String = ""
     var api: TeslaSwift!
-        
+    
+    var urlComponents = URLComponents(string: "http://167.172.132.223:3000/api/chargersWithinBounds")!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -45,6 +48,13 @@ class RoutingVC: UIViewController, UISearchBarDelegate {
         mapView.layer.cornerRadius = 45
         
         self.getVehicle()
+        
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(self.didDragMap(_:)))
+        let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(self.didPinchMap(_:)))
+        panGesture.delegate = self
+        pinchGesture.delegate = self
+        mapView.addGestureRecognizer(panGesture)
+        mapView.addGestureRecognizer(pinchGesture)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -62,16 +72,23 @@ class RoutingVC: UIViewController, UISearchBarDelegate {
                 switch result {
                     case .success(let networkVehicle):
                         self.networkVehicle = networkVehicle
-                        self.getLocation()
+                        
+                        if (networkVehicle.state == "asleep") {
+                            _ = self.api.wakeUp(vehicle: networkVehicle).done{(response: Vehicle) -> Void in
+                                self.getLocation()
+                            }
+                        } else {
+                            self.getLocation()
+                        }
                         
                         print("successfully loaded network vehicle")
                     case .failure(let error):
                         print("failure to auth API")
                         print(error.localizedDescription)
-                        DispatchQueue.main.async{
-                            let banner = StatusBarNotificationBanner(title: "Unable to connect to Tesla's Network", style: .danger)
-                            banner.show()
-                        }
+//                        DispatchQueue.main.async{
+//                            let banner = StatusBarNotificationBanner(title: "Unable to connect to Tesla's Network", style: .danger)
+//                            banner.show()
+//                        }
                 }
             }
         }
@@ -92,9 +109,24 @@ class RoutingVC: UIViewController, UISearchBarDelegate {
                         let banner = StatusBarNotificationBanner(title: "Unable to connect to Tesla's Network", style: .danger)
                         banner.show()
                     }
+                }
             }
         }
     }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation.subtitle == "Your Vehicle" {
+            let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "charger-glyph")
+            annotationView.image = UIImage(named: "vehicle-icon")
+            
+            return annotationView
+        } else {
+            let annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "charger-glyph")
+            annotationView.glyphImage = UIImage(named: "charger-glyph")
+            annotationView.glyphTintColor = .white
+            
+            return annotationView
+        }
     }
 }
 
@@ -111,32 +143,56 @@ private extension MKMapView {
   }
 }
 
-extension RoutingVC: MKMapViewDelegate {
-  // 1
-  func mapView(
-    _ mapView: MKMapView,
-    viewFor annotation: MKAnnotation
-  ) -> MKAnnotationView? {
-    // 2
-    guard let annotation = annotation as? VehiclePin else {
-      return nil
-    }
-    // 3
-    let identifier = "vehiclepin"
-    var view: MKMarkerAnnotationView
-    // 4
-    if let dequeuedView = mapView.dequeueReusableAnnotationView(
-      withIdentifier: identifier) as? MKMarkerAnnotationView {
-      dequeuedView.annotation = annotation
-      view = dequeuedView
-    } else {
-      // 5
-      view = MKMarkerAnnotationView(
-        annotation: annotation,
-        reuseIdentifier: identifier)
-        view.canShowCallout = false
+extension RoutingVC: UIGestureRecognizerDelegate {
+    func requestChargers() {
+        let topRightLat = String(format: "%.5f", mapView.region.center.latitude + mapView.region.span.latitudeDelta / 2)
+        let topRightLong = String(format: "%.5f", mapView.region.center.longitude + mapView.region.span.longitudeDelta / 2)
+        let bottomLeftLat = String(format: "%.5f", mapView.region.center.latitude - mapView.region.span.latitudeDelta / 2)
+        let bottomLeftLong = String(format: "%.5f", mapView.region.center.longitude - mapView.region.span.longitudeDelta / 2)
         
+        urlComponents.queryItems = [
+            URLQueryItem(name: "topRightLat", value: topRightLat),
+            URLQueryItem(name: "topRightLong", value: topRightLong),
+            URLQueryItem(name: "bottomLeftLat", value: bottomLeftLat),
+            URLQueryItem(name: "bottomLeftLong", value: bottomLeftLong)
+        ]
+        let url = urlComponents.url!.absoluteURL
+        var request = URLRequest(url: url)
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            if let data = data {
+                if let chargers = try? JSONDecoder().decode([Charger].self, from: data) {
+                    for i in 0..<chargers.count {
+                        let charger = chargers[i]
+                        let annotation = MKPointAnnotation()
+                        annotation.coordinate = CLLocationCoordinate2D(latitude: charger.location[1], longitude: charger.location[0])
+                        annotation.subtitle = String(format: "Supercharger \n Stalls: %d", charger.stallCount)
+                        self.mapView.addAnnotation(annotation)
+                    }
+                } else {
+                    print("no chargers")
+                }
+            } else if let error = error {
+                print("HTTP request failed \(error)")
+            }
+        }
+        task.resume()
     }
-    return view
-  }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+
+    @objc func didDragMap(_ sender: UIGestureRecognizer) {
+        if sender.state == .ended {
+            requestChargers()
+        }
+    }
+
+    @objc func didPinchMap(_ sender: UIGestureRecognizer) {
+        if sender.state == .ended {
+            requestChargers()
+        }
+    }
 }

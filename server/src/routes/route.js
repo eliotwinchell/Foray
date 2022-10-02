@@ -84,7 +84,6 @@ async function route(req, res) {
       //findRoute(data)
   });
 
-
 async function findRoute(chargers) {
 
 }

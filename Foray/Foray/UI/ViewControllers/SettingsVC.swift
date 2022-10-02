@@ -29,7 +29,7 @@ class SettingsVC: UITableViewController {
     }
      
     @IBAction func signOutAction(_ sender: Any) {
-        api.logout()
+        //api.logout() this crashes the app?
         print("sign out")
     }
 }

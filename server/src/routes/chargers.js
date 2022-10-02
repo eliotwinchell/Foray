@@ -11,18 +11,15 @@ const ChargerModel = mongoose.model('Charger', chargerSchema);
 
 function getChargers() {
   const router = express.Router()
-  router.post('', chargersInBounds);
+  router.get('', chargersInBounds);
 
   return router
 }
 
 // POST: 123.09.420.101:8000/api/chargersWithinBounds
 async function chargersInBounds(req, res) {
-  const bottomLeftCoords = req.body.bottomLeftCoords;
-  const topRightCoords = req.body.topRightCoords;
-  
-  console.log("endpoint hit");
-  console.log(topRightCoords);
+  const bottomLeftCoords = [req.query.bottomLeftLong, req.query.bottomLeftLat];
+  const topRightCoords = [req.query.topRightLong, req.query.topRightLat];
 
   ChargerModel.find({
     location:{
@@ -36,8 +33,29 @@ async function chargersInBounds(req, res) {
   })
   .exec((err, data) => {
       if (err) console.log(err);
-      res.send(data);
+      if (data.length > 0) {
+        let chargers = [];
+        data.map((charger, index) => {
+          let newCharger = {
+            "location": charger.location.coordinates,
+            "id": charger.id,
+            "name": charger.name,
+            "status": charger.status,
+            "stallCount": charger.stallCount
+          }
+          chargers.push(newCharger);
+        });
+        
+        res.send(chargers);
+      } else {
+        res.send([]);
+      }
   });
 }
 
 module.exports.getChargers = getChargers;
+
+// {
+//    "bottomLeftCoords": [-71.119618, 42.322109],
+//    "topRightCoords": [-71.012203, 42.404311]
+//}
