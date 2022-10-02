@@ -35,11 +35,10 @@ class LoadingVC: UIViewController {
         super.prepare(for: segue, sender: sender)
 
         if segue.identifier == Segue.home {
-            let navigationVC = segue.destination as! NavigationController
+            let navigationVC = segue.destination as! NavigationVC
             let tabBarVC = navigationVC.topViewController as! TabBarVC
-            let homeVC = tabBarVC.viewControllers?[0] as! HomeVC
-            let tripPlannerVC = tabBarVC.viewControllers?[1] as! TripPlannerVC
-            let settingsVC = tabBarVC.viewControllers?[3] as! SettingsListVC
+            let homeVC = tabBarVC.viewControllers?[0] as! RoutingVC
+            let settingsVC = tabBarVC.viewControllers?[2] as! SettingsVC
             
             homeVC.api = self.api
             tripPlannerVC.api = self.api

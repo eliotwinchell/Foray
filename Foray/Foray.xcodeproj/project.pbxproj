@@ -18,6 +18,12 @@
 		731B150A28E8C1ED00925048 /* ForayUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731B150928E8C1ED00925048 /* ForayUITestsLaunchTests.swift */; };
 		7398861B28E8CB59007734B5 /* LoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7398861A28E8CB59007734B5 /* LoadingVC.swift */; };
 		7398861D28E8CB90007734B5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7398861C28E8CB90007734B5 /* Constants.swift */; };
+		7398861F28E9076D007734B5 /* NavigationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7398861E28E9076D007734B5 /* NavigationVC.swift */; };
+		7398862128E907A3007734B5 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7398862028E907A3007734B5 /* TabBarVC.swift */; };
+		7398862328E91785007734B5 /* RoutingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7398862228E91785007734B5 /* RoutingVC.swift */; };
+		7398862728E91851007734B5 /* StatisticsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7398862628E91851007734B5 /* StatisticsVC.swift */; };
+		7398862928E91870007734B5 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7398862828E91870007734B5 /* SettingsVC.swift */; };
+		7398862B28E91AE0007734B5 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7398862A28E91AE0007734B5 /* LoginVC.swift */; };
 		CA282CAAE298CCF0ECE84F46 /* Pods_Foray.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FDBA4831DE6E042D3D652A /* Pods_Foray.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +62,12 @@
 		731B150928E8C1ED00925048 /* ForayUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForayUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		7398861A28E8CB59007734B5 /* LoadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingVC.swift; sourceTree = "<group>"; };
 		7398861C28E8CB90007734B5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7398861E28E9076D007734B5 /* NavigationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationVC.swift; sourceTree = "<group>"; };
+		7398862028E907A3007734B5 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
+		7398862228E91785007734B5 /* RoutingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingVC.swift; sourceTree = "<group>"; };
+		7398862628E91851007734B5 /* StatisticsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsVC.swift; sourceTree = "<group>"; };
+		7398862828E91870007734B5 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		7398862A28E91AE0007734B5 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		AED653EC5A0509A738326A30 /* Pods-Foray.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Foray.release.xcconfig"; path = "Target Support Files/Pods-Foray/Pods-Foray.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -168,6 +180,12 @@
 			isa = PBXGroup;
 			children = (
 				7398861A28E8CB59007734B5 /* LoadingVC.swift */,
+				7398861E28E9076D007734B5 /* NavigationVC.swift */,
+				7398862028E907A3007734B5 /* TabBarVC.swift */,
+				7398862228E91785007734B5 /* RoutingVC.swift */,
+				7398862628E91851007734B5 /* StatisticsVC.swift */,
+				7398862828E91870007734B5 /* SettingsVC.swift */,
+				7398862A28E91AE0007734B5 /* LoginVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -356,11 +374,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7398862B28E91AE0007734B5 /* LoginVC.swift in Sources */,
+				7398862128E907A3007734B5 /* TabBarVC.swift in Sources */,
+				7398861F28E9076D007734B5 /* NavigationVC.swift in Sources */,
 				731B14E428E8C1EC00925048 /* AppDelegate.swift in Sources */,
+				7398862328E91785007734B5 /* RoutingVC.swift in Sources */,
 				731B14E628E8C1EC00925048 /* SceneDelegate.swift in Sources */,
+				7398862728E91851007734B5 /* StatisticsVC.swift in Sources */,
 				731B14EE28E8C1EC00925048 /* Foray.xcdatamodeld in Sources */,
 				7398861B28E8CB59007734B5 /* LoadingVC.swift in Sources */,
 				7398861D28E8CB90007734B5 /* Constants.swift in Sources */,
+				7398862928E91870007734B5 /* SettingsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
