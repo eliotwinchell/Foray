@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv')
 const { getChargers } = require('./chargers');
+const { getRoute } = require('./route');
 
 dotenv.config();
 
@@ -16,7 +17,8 @@ const db = mongoose.connection;
 function getRoutes() {
   const router = express.Router()
 
-  router.use('/chargersWithinBounds', getChargers())
+  router.use('/chargersWithinBounds', getChargers());
+  router.use('/route', getRoute());
 
   return router
 }
