@@ -24,6 +24,9 @@
 		7398862728E91851007734B5 /* StatisticsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7398862628E91851007734B5 /* StatisticsVC.swift */; };
 		7398862928E91870007734B5 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7398862828E91870007734B5 /* SettingsVC.swift */; };
 		7398862B28E91AE0007734B5 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7398862A28E91AE0007734B5 /* LoginVC.swift */; };
+		7398862D28E91C1D007734B5 /* SettingsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7398862C28E91C1D007734B5 /* SettingsListCell.swift */; };
+		7398862F28E91C73007734B5 /* VehiclePin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7398862E28E91C73007734B5 /* VehiclePin.swift */; };
+		7398863128E91E2F007734B5 /* NoVehicleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7398863028E91E2F007734B5 /* NoVehicleVC.swift */; };
 		CA282CAAE298CCF0ECE84F46 /* Pods_Foray.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FDBA4831DE6E042D3D652A /* Pods_Foray.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +71,9 @@
 		7398862628E91851007734B5 /* StatisticsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsVC.swift; sourceTree = "<group>"; };
 		7398862828E91870007734B5 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		7398862A28E91AE0007734B5 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		7398862C28E91C1D007734B5 /* SettingsListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsListCell.swift; sourceTree = "<group>"; };
+		7398862E28E91C73007734B5 /* VehiclePin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehiclePin.swift; sourceTree = "<group>"; };
+		7398863028E91E2F007734B5 /* NoVehicleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoVehicleVC.swift; sourceTree = "<group>"; };
 		AED653EC5A0509A738326A30 /* Pods-Foray.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Foray.release.xcconfig"; path = "Target Support Files/Pods-Foray/Pods-Foray.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -172,6 +178,8 @@
 		7398861828E8CB3C007734B5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7398862C28E91C1D007734B5 /* SettingsListCell.swift */,
+				7398862E28E91C73007734B5 /* VehiclePin.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -186,6 +194,7 @@
 				7398862628E91851007734B5 /* StatisticsVC.swift */,
 				7398862828E91870007734B5 /* SettingsVC.swift */,
 				7398862A28E91AE0007734B5 /* LoginVC.swift */,
+				7398863028E91E2F007734B5 /* NoVehicleVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -377,9 +386,12 @@
 				7398862B28E91AE0007734B5 /* LoginVC.swift in Sources */,
 				7398862128E907A3007734B5 /* TabBarVC.swift in Sources */,
 				7398861F28E9076D007734B5 /* NavigationVC.swift in Sources */,
+				7398862F28E91C73007734B5 /* VehiclePin.swift in Sources */,
 				731B14E428E8C1EC00925048 /* AppDelegate.swift in Sources */,
 				7398862328E91785007734B5 /* RoutingVC.swift in Sources */,
 				731B14E628E8C1EC00925048 /* SceneDelegate.swift in Sources */,
+				7398862D28E91C1D007734B5 /* SettingsListCell.swift in Sources */,
+				7398863128E91E2F007734B5 /* NoVehicleVC.swift in Sources */,
 				7398862728E91851007734B5 /* StatisticsVC.swift in Sources */,
 				731B14EE28E8C1EC00925048 /* Foray.xcdatamodeld in Sources */,
 				7398861B28E8CB59007734B5 /* LoadingVC.swift in Sources */,

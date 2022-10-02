@@ -28,8 +28,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <segue destination="Wko-Qw-DIp" kind="presentation" modalPresentationStyle="fullScreen" id="NeJ-NB-9yM"/>
+                        <segue destination="Wko-Qw-DIp" kind="presentation" identifier="homeSegue" modalPresentationStyle="fullScreen" id="NeJ-NB-9yM"/>
                         <segue destination="TmD-0o-IIL" kind="presentation" identifier="loginSegue" modalPresentationStyle="fullScreen" id="xxJ-ET-K6T"/>
+                        <segue destination="qUq-Mv-CbQ" kind="presentation" identifier="noVehicleSegue" modalPresentationStyle="fullScreen" id="0L9-hG-Qt8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -45,7 +46,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="FWd-zu-FL6" kind="relationship" relationship="rootViewController" id="Obi-x3-LRg"/>
+                        <segue destination="FWd-zu-FL6" kind="relationship" relationship="rootViewController" destinationCreationSelector="tabBarSegue" id="Obi-x3-LRg"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1mU-KR-Ki1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -278,13 +279,56 @@
                     <connections>
                         <outlet property="appTitle" destination="eGd-3D-DUB" id="gDA-R1-wvE"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="loadingScreenSegue" modalPresentationStyle="fullScreen" id="euc-4g-C6X"/>
+                        <segue destination="Wko-Qw-DIp" kind="presentation" identifier="homeSegue" modalPresentationStyle="fullScreen" id="KZG-FR-vny"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sik-1b-mQF" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="837" y="-730"/>
         </scene>
+        <!--No VehicleVC-->
+        <scene sceneID="gJm-7m-95N">
+            <objects>
+                <viewController id="qUq-Mv-CbQ" customClass="NoVehicleVC" customModule="KeychainforTesla" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="71w-Qg-w4e">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There are no vehicles in your Tesla account!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aaq-Qh-4uv">
+                                <rect key="frame" x="28.666666666666657" y="411.66666666666669" width="332.66666666666674" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qjc-QH-Ul6">
+                                <rect key="frame" x="180" y="592" width="55" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Log Out"/>
+                                <connections>
+                                    <action selector="buttonPress:" destination="qUq-Mv-CbQ" eventType="touchUpInside" id="0ap-tu-HpM"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="WOc-FV-Fsg"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Aaq-Qh-4uv" firstAttribute="centerY" secondItem="71w-Qg-w4e" secondAttribute="centerY" id="98X-RQ-gRx"/>
+                            <constraint firstItem="Aaq-Qh-4uv" firstAttribute="centerX" secondItem="71w-Qg-w4e" secondAttribute="centerX" id="KXS-Pt-g5h"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="logOutButton" destination="Qjc-QH-Ul6" id="4jB-NH-upi"/>
+                        <outlet property="textLabel" destination="Aaq-Qh-4uv" id="0MG-Qv-xr6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4lK-4K-7Xj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="837" y="741"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="NeJ-NB-9yM"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="compass-icon" width="31" height="31"/>
         <image name="settings-icon" width="31" height="31"/>

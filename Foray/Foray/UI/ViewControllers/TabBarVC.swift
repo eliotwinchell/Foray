@@ -28,26 +28,7 @@ class TabBarVC: UITabBarController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if (segue.identifier == Segue.homeFromTab) {
-//            let hvc = segue.destination as! HomeVC
-//            hvc.api = self.api
-//            print("set api for HVC")
-//        }
-//
-//        if (segue.identifier == Segue.tripPlanner) {
-//            let tpvc = segue.destination as! TripPlannerVC
-//            tpvc.api = self.api
-//        }
-    }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
-    */
 
 }

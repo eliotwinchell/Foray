@@ -41,19 +41,12 @@ class LoadingVC: UIViewController {
             let settingsVC = tabBarVC.viewControllers?[2] as! SettingsVC
             
             homeVC.api = self.api
-            tripPlannerVC.api = self.api
             settingsVC.api = self.api
         }
         
         if segue.identifier == Segue.login {
             let lvc = segue.destination as! LoginVC
             lvc.api = self.api
-        }
-        
-        if segue.identifier == Segue.stream {
-            let svc = segue.destination as! StreamVC
-            svc.vehicle = self.api.getVehicles()
-            svc.api = self.api
         }
     }
     
@@ -68,7 +61,7 @@ class LoadingVC: UIViewController {
                 
                 if (loadedToken.isValid) {
                     DispatchQueue.main.async {
-                        self.performSegue(withIdentifier: Segue.stream, sender: self)
+                        self.performSegue(withIdentifier: Segue.home, sender: self)
                     }
                 } else {
                     // Try to refresh the web token before going to the login screen
@@ -78,7 +71,7 @@ class LoadingVC: UIViewController {
                         switch result {
                         case .success(_):
                             DispatchQueue.main.async {
-                                self.performSegue(withIdentifier: Segue.stream, sender: self)
+                                self.performSegue(withIdentifier: Segue.home, sender: self)
                             }
                         case .failure(_):
                             DispatchQueue.main.async {
@@ -96,16 +89,3 @@ class LoadingVC: UIViewController {
         }
     }
 }
-
-//if self.authSuccessful {
-//    self.dismiss(animated: false, completion: {
-//        let nc = NavigationController()
-//        nc.data = self.data
-//        pvc?.present(nc, animated: false, completion: nil)
-//    })
-//} else {
-//    self.dismiss(animated: false, completion: {
-//        let lvc = LoginViewController()
-//        pvc?.present(lvc, animated: false, completion: nil)
-//    })
-//}
