@@ -31,8 +31,8 @@ class RoutingVC: UIViewController, UISearchBarDelegate, MKMapViewDelegate {
     var vehicleID: String = ""
     var api: TeslaSwift!
     
-    let url = URL(string: "http://167.172.132.223:3000/api/chargersWithinBounds")!
-        
+    var urlComponents = URLComponents(string: "http://167.172.132.223:3000/api/chargersWithinBounds")!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -166,12 +166,27 @@ extension RoutingVC: UIGestureRecognizerDelegate {
         if sender.state == .ended {
             //code here
             print("finished dragging map")
-            let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
-                guard let data = data else { return }
-                print(String(data: data, encoding: .utf8)!)
-            }
+            let topRightLat = String(format: "%.5f", mapView.region.center.latitude + mapView.region.span.latitudeDelta / 2)
+            let topRightLong = String(format: "%.5f", mapView.region.center.longitude + mapView.region.span.longitudeDelta / 2)
+            let bottomLeftLat = String(format: "%.5f", mapView.region.center.latitude - mapView.region.span.latitudeDelta / 2)
+            let bottomLeftLong = String(format: "%.5f", mapView.region.center.longitude - mapView.region.span.longitudeDelta / 2)
             
-            task.resume()
+            urlComponents.queryItems = [
+                URLQueryItem(name: "topRightLat", value: topRightLat),
+                URLQueryItem(name: "topRightLong", value: topRightLong),
+                URLQueryItem(name: "bottomLeftLat", value: bottomLeftLat),
+                URLQueryItem(name: "bottomLeftLong", value: bottomLeftLong)
+            ]
+            let url = urlComponents.url!.absoluteURL
+            var request = URLRequest(url: url)
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
+            print(urlComponents.url!.absoluteURL)
+            
+            sendRequest(urlComponents.url!.absoluteURL) { (result, error) in
+                print("Got an answer: \(String(describing: result))")
+                print(result)
+            }
         }
     }
 
@@ -180,5 +195,22 @@ extension RoutingVC: UIGestureRecognizerDelegate {
             //code here
             print("finished pinching map")
         }
+    }
+    
+    func sendRequest(_ url: URL, completion: @escaping ([String: Any]?, Error?) -> Void) {
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data, // is there data
+                let response = response as? HTTPURLResponse, // is there HTTP response
+                (200 ..< 300) ~= response.statusCode, // is statusCode 2XX
+                error == nil else { // was there no error, otherwise ...
+                    completion(nil, error)
+                    return
+            }
+            print(data)
+            let jsonDict:NSDictionary = try JSONSerialization.jsonObject(with: data, options:.mutableContainers) as! NSDictionary
+            print(jsonDict)
+            //completion(, nil)
+        }
+        task.resume()
     }
 }
