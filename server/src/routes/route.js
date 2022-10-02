@@ -33,21 +33,21 @@ async function chargersInBounds(req, res) {
   console.log("endpoint hit");
   console.log(topRightCoords);
 
-  ChargerModel.find({
-    location:{
-      $geoWithin:{
-        $box: [
-          bottomLeftCoords,
-          topRightCoords
-        ]
-      }
-    }
-  })
-  .exec((err, data) => {
-      if (err) console.log(err);
-      if 
-      // findRoute(data)
-  });
+  // ChargerModel.find({
+  //   location:{
+  //     $geoWithin:{
+  //       $box: [
+  //         bottomLeftCoords,
+  //         topRightCoords
+  //       ]
+  //     }
+  //   }
+  // })
+  // .exec((err, data) => {
+  //     if (err) console.log(err);
+  //     if 
+  //     // findRoute(data)
+  // });
 }
 
 async function findRoute(chargers) {
