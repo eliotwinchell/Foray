@@ -10,7 +10,7 @@ We have designed an iOS app to help electric vehicle (EV) drivers plan their tra
 This functionality is only availble to users of certain EVs, in particular Tesla users, and even then the driver must use the car's onboard system to plan their route. It is believed that the availbility of a mobile app capable of integrating trip planning with EV charigning needs would foment the adoption of EVs as this functionality reduces user's range anxiety associated with the relative scaraciuty of charinging options compared to the availbity of petroleum fuels. 
 
 **_Tools Used_** 
-* Flutter
+* Swift
 * MongoDB
 * Mongoose
 * Express
