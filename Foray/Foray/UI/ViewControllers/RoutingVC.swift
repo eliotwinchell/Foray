@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import TeslaSwift
 import NotificationBannerSwift
+import SwiftyJSON
 
 protocol HandleMapSearch {
     func dropPinZoomIn(placemark: MKPlacemark)
@@ -161,6 +162,17 @@ class RoutingVC: UIViewController, UISearchBarDelegate, MKMapViewDelegate {
             return annotationView
         }
     }
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        if let routePolyline = overlay as? MKPolyline {
+            let renderer = MKPolylineRenderer(polyline: routePolyline)
+            renderer.strokeColor = .red
+            renderer.lineWidth = 7
+            return renderer
+        }
+
+        return MKOverlayRenderer()
+    }
 }
 
 private extension MKMapView {
@@ -186,34 +198,49 @@ extension RoutingVC: HandleMapSearch {
         print(vehicleLocation!.longitude!)
         print(destination.coordinate.latitude)
         print(destination.coordinate.longitude)
-        if let vehicleCoords = vehicleLocation {
-            let rawString = "https://api.tomtom.com/routing/1/calculateRoute/\(vehicleCoords.latitude!)%2\(vehicleCoords.longitude!)%3\(destination.coordinate.latitude)%2\(destination.coordinate.longitude)/json?key=ukGnJX18sgSGk7miWLxlL2PPbyuDhNsH"
-            let tomtomUrl = URL(string: rawString)
-            
-            print(tomtomUrl.absoluteURL)
-            var request = URLRequest(url: tomtomUrl!.absoluteURL)
-            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-             
-            let task = URLSession.shared.dataTask(with: tomtomUrl!) { data, response, error in
-                if let data = data {
-                    if let welcome8 = try? JSONDecoder().decode(Welcome8.self, from: data) {
-                        let legs = welcome8.routes[0].legs
-                        for i in 0..<legs.count {
-                            print(legs[i])
-//                            let annotation = MKPointAnnotation()
-//                            annotation.coordinate = CLLocationCoordinate2D(latitude: charger.location[1], longitude: charger.location[0])
-//                            annotation.subtitle = String(format: "Supercharger \n Stalls: %d", charger.stallCount)
-//                            self.mapView.addAnnotation(annotation)
+        let vehicleCoords = vehicleLocation
+        let rawStr = "https://api.tomtom.com/routing/1/calculateRoute/\(vehicleCoords!.latitude!),\(vehicleCoords!.longitude!):\(destination.coordinate.latitude),\(destination.coordinate.longitude)/json?key=ukGnJX18sgSGk7miWLxlL2PPbyuDhNsH"
+        let urlEncoded = rawStr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        let url = URL(string: urlEncoded!)
+        
+        print(url)
+        var request = URLRequest(url: url!)
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+         
+        let task = URLSession.shared.dataTask(with: url!) { data, response, error in
+            if let data = data {
+                do {
+                    let json = try JSON(data: data)
+                    var coordinatesPath = [CLLocationCoordinate2D]()
+                    if let points = json["routes"][0]["legs"][0]["points"].array {
+                        for point in points {
+                            if let jsonDict = point.dictionary {
+                                print(jsonDict)
+                                let lat = jsonDict["latitude"]!.doubleValue
+                                let long = jsonDict["longitude"]!.doubleValue
+                                let newCoord = CLLocationCoordinate2D(latitude: lat, longitude: long)
+                                coordinatesPath.append(newCoord)
+                            } else {
+                                print("not a dict")
+                            }
+                        }
+                        let polygon = MKPolyline(coordinates: coordinatesPath, count: coordinatesPath.count)
+                        
+                        DispatchQueue.main.async {
+                            self.mapView.addOverlay(polygon)
+                            self.mapView.setVisibleMapRect(polygon.boundingMapRect, animated: true)
                         }
                     } else {
                         print("no chargers")
                     }
-                } else if let error = error {
-                    print("HTTP request failed \(error)")
+                } catch {
+                    print(error)
                 }
+            } else if let error = error {
+                print("HTTP request failed \(error)")
             }
-            task.resume()
         }
+        task.resume()
         
 //
 //        // clear existing pins

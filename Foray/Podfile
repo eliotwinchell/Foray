@@ -11,6 +11,7 @@ target 'Foray' do
   pod 'TeslaSwift/Combine', '~> 7'
   pod 'TeslaSwift/Rx', '~> 7'
   pod 'TeslaSwift/Streaming', '~> 7'
+  pod 'SwiftyJSON', '~> 4.0'
 
   # NotificationBanner
   pod 'NotificationBannerSwift', '~> 3.0.0'
