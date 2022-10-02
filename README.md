@@ -1,1 +1,2 @@
-# Foray
+# EV Compass 
+(formerly Foray)
