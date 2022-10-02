@@ -8,20 +8,17 @@
 import Foundation
 import UIKit
 
-class Statistics: UIViewController {
-    @IBOutlet var mainView: UIView!
-    @IBOutlet var scrollView: UIScrollView!
-    @IBOutlet var firstGraph: UIView!
-    
-    @IBOutlet var secondGraph: UIView!
-    
+class StatisticsVC: UIViewController {
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var mainView: UIView!
+     
     override func viewDidLoad() {
         overrideUserInterfaceStyle = .dark
         view.backgroundColor = .black
         
-        self.scrollView.backgroundColor = CustomColor.customBackgroundColor
+        self.scrollView.backgroundColor = .gray
         self.mainView.layer.cornerRadius = 45
-        self.mainView.backgroundColor = .black
+        self.mainView.backgroundColor = .gray
     }
     
     override func viewDidLayoutSubviews() {

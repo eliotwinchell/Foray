@@ -11,15 +11,14 @@ import MapKit
 import TeslaSwift
 import NotificationBannerSwift
 
-class RoutingVC: UIViewController, UISearchBarDelegate {
+class RoutingVC: UIViewController, UISearchBarDelegate, MKMapViewDelegate {
     @IBOutlet var mapView: MKMapView!
     
     private var networkVehicle: Vehicle?
     private var vehicleLocation: DriveState? {
         didSet {
             let initialLocation = CLLocation(latitude: vehicleLocation?.latitude ?? 35.2785431, longitude: vehicleLocation?.longitude ?? -120.7514578)
-            let vehiclePin = VehiclePin(
-                coordinate: CLLocationCoordinate2D(latitude: vehicleLocation?.latitude ?? 35.2785431, longitude: vehicleLocation?.longitude ?? -120.75145781))
+            let vehiclePin = VehiclePin(coordinate: CLLocationCoordinate2D(latitude: vehicleLocation?.latitude ?? 35.2785431, longitude: vehicleLocation?.longitude ?? -120.75145781))
             
             DispatchQueue.main.async {
                 self.mapView.centerToLocation(initialLocation)
@@ -31,6 +30,8 @@ class RoutingVC: UIViewController, UISearchBarDelegate {
     var searchBar: UISearchBar? = nil
     var vehicleID: String = ""
     var api: TeslaSwift!
+    
+    let url = URL(string: "http://167.172.132.223:3000/api/chargersWithinBounds")!
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +46,13 @@ class RoutingVC: UIViewController, UISearchBarDelegate {
         mapView.layer.cornerRadius = 45
         
         self.getVehicle()
+        
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(self.didDragMap(_:)))
+        let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(self.didPinchMap(_:)))
+        panGesture.delegate = self
+        pinchGesture.delegate = self
+        mapView.addGestureRecognizer(panGesture)
+        mapView.addGestureRecognizer(pinchGesture)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -62,16 +70,23 @@ class RoutingVC: UIViewController, UISearchBarDelegate {
                 switch result {
                     case .success(let networkVehicle):
                         self.networkVehicle = networkVehicle
-                        self.getLocation()
+                        
+                        if (networkVehicle.state == "asleep") {
+                            _ = self.api.wakeUp(vehicle: networkVehicle).done{(response: Vehicle) -> Void in
+                                self.getLocation()
+                            }
+                        } else {
+                            self.getLocation()
+                        }
                         
                         print("successfully loaded network vehicle")
                     case .failure(let error):
                         print("failure to auth API")
                         print(error.localizedDescription)
-                        DispatchQueue.main.async{
-                            let banner = StatusBarNotificationBanner(title: "Unable to connect to Tesla's Network", style: .danger)
-                            banner.show()
-                        }
+//                        DispatchQueue.main.async{
+//                            let banner = StatusBarNotificationBanner(title: "Unable to connect to Tesla's Network", style: .danger)
+//                            banner.show()
+//                        }
                 }
             }
         }
@@ -111,7 +126,7 @@ private extension MKMapView {
   }
 }
 
-extension RoutingVC: MKMapViewDelegate {
+extension RoutingVC {
   // 1
   func mapView(
     _ mapView: MKMapView,
@@ -139,4 +154,31 @@ extension RoutingVC: MKMapViewDelegate {
     }
     return view
   }
+}
+
+extension RoutingVC: UIGestureRecognizerDelegate {
+
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+
+    @objc func didDragMap(_ sender: UIGestureRecognizer) {
+        if sender.state == .ended {
+            //code here
+            print("finished dragging map")
+            let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
+                guard let data = data else { return }
+                print(String(data: data, encoding: .utf8)!)
+            }
+            
+            task.resume()
+        }
+    }
+
+    @objc func didPinchMap(_ sender: UIGestureRecognizer) {
+        if sender.state == .ended {
+            //code here
+            print("finished pinching map")
+        }
+    }
 }

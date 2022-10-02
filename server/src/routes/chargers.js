@@ -11,18 +11,15 @@ const ChargerModel = mongoose.model('Charger', chargerSchema);
 
 function getChargers() {
   const router = express.Router()
-  router.post('', chargersInBounds);
+  router.get('', chargersInBounds);
 
   return router
 }
 
 // POST: 123.09.420.101:8000/api/chargersWithinBounds
 async function chargersInBounds(req, res) {
-  const bottomLeftCoords = req.body.bottomLeftCoords;
-  const topRightCoords = req.body.topRightCoords;
-  
-  console.log("endpoint hit");
-  console.log(topRightCoords);
+  const bottomLeftCoords = [req.query.bottomLeftLong, req.query.bottomLeftLat];
+  const topRightCoords = [req.query.topRightLong, req.query.topRightLat];
 
   ChargerModel.find({
     location:{

@@ -17,7 +17,7 @@ class VehiclePin: NSObject, MKAnnotation {
     coordinate: CLLocationCoordinate2D
   ) {
     self.coordinate = coordinate
-    self.image = UIImage(named: "teslaicon")
+    self.image = UIImage(named: "vehicle-icon")
     
     super.init()
   }
