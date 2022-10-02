@@ -10,7 +10,7 @@ import MapKit
 
 class VehiclePin: NSObject, MKAnnotation {
     let coordinate: CLLocationCoordinate2D
-    let identifier = "vehiclepin"
+    let identifier = "vehicle-pin"
     let image: UIImage?
 
   init(

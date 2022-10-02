@@ -107,9 +107,26 @@ class RoutingVC: UIViewController, UISearchBarDelegate, MKMapViewDelegate {
                         let banner = StatusBarNotificationBanner(title: "Unable to connect to Tesla's Network", style: .danger)
                         banner.show()
                     }
+                }
             }
         }
     }
+    
+    internal func mapView(
+      _ mapView: MKMapView,
+      viewFor annotation: MKAnnotation
+    ) -> MKAnnotationView? {
+      // 2
+      guard let annotation = annotation as? ChargerPin else {
+        return nil
+      }
+      // 3
+      let identifier = "charger-marker"
+      let annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+      annotationView.glyphImage = UIImage(named: "charger-icon")
+        annotationView.markerTintColor = UIColor.blue
+
+      return annotationView
     }
 }
 
@@ -126,91 +143,57 @@ private extension MKMapView {
   }
 }
 
-extension RoutingVC {
-  // 1
-  func mapView(
-    _ mapView: MKMapView,
-    viewFor annotation: MKAnnotation
-  ) -> MKAnnotationView? {
-    // 2
-    guard let annotation = annotation as? VehiclePin else {
-      return nil
-    }
-    // 3
-    let identifier = "vehiclepin"
-    var view: MKMarkerAnnotationView
-    // 4
-    if let dequeuedView = mapView.dequeueReusableAnnotationView(
-      withIdentifier: identifier) as? MKMarkerAnnotationView {
-      dequeuedView.annotation = annotation
-      view = dequeuedView
-    } else {
-      // 5
-      view = MKMarkerAnnotationView(
-        annotation: annotation,
-        reuseIdentifier: identifier)
-        view.canShowCallout = false
-        
-    }
-    return view
-  }
-}
-
 extension RoutingVC: UIGestureRecognizerDelegate {
+    func requestChargers() {
+        let topRightLat = String(format: "%.5f", mapView.region.center.latitude + mapView.region.span.latitudeDelta / 2)
+        let topRightLong = String(format: "%.5f", mapView.region.center.longitude + mapView.region.span.longitudeDelta / 2)
+        let bottomLeftLat = String(format: "%.5f", mapView.region.center.latitude - mapView.region.span.latitudeDelta / 2)
+        let bottomLeftLong = String(format: "%.5f", mapView.region.center.longitude - mapView.region.span.longitudeDelta / 2)
+        
+        urlComponents.queryItems = [
+            URLQueryItem(name: "topRightLat", value: topRightLat),
+            URLQueryItem(name: "topRightLong", value: topRightLong),
+            URLQueryItem(name: "bottomLeftLat", value: bottomLeftLat),
+            URLQueryItem(name: "bottomLeftLong", value: bottomLeftLong)
+        ]
+        let url = urlComponents.url!.absoluteURL
+        var request = URLRequest(url: url)
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
+        print(urlComponents.url!.absoluteURL)
+        
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            if let data = data {
+                if let chargers = try? JSONDecoder().decode([Charger].self, from: data) {
+                    print(chargers)
+                    for i in 0..<chargers.count {
+                        let charger = chargers[i]
+                        let chargerPin = ChargerPin(coordinate: CLLocationCoordinate2D(latitude: charger.location[1], longitude: charger.location[0]), identifier: charger.id, subtitle: String(format: "Supercharger \n Stalls: %d", charger.stallCount))
+                        self.mapView.addAnnotation(chargerPin)
+                    }
+                } else {
+                    print("no chargers")
+                }
+            } else if let error = error {
+                print("HTTP request failed \(error)")
+            }
+        }
+        task.resume()
+    }
+    
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
 
     @objc func didDragMap(_ sender: UIGestureRecognizer) {
         if sender.state == .ended {
-            //code here
-            print("finished dragging map")
-            let topRightLat = String(format: "%.5f", mapView.region.center.latitude + mapView.region.span.latitudeDelta / 2)
-            let topRightLong = String(format: "%.5f", mapView.region.center.longitude + mapView.region.span.longitudeDelta / 2)
-            let bottomLeftLat = String(format: "%.5f", mapView.region.center.latitude - mapView.region.span.latitudeDelta / 2)
-            let bottomLeftLong = String(format: "%.5f", mapView.region.center.longitude - mapView.region.span.longitudeDelta / 2)
-            
-            urlComponents.queryItems = [
-                URLQueryItem(name: "topRightLat", value: topRightLat),
-                URLQueryItem(name: "topRightLong", value: topRightLong),
-                URLQueryItem(name: "bottomLeftLat", value: bottomLeftLat),
-                URLQueryItem(name: "bottomLeftLong", value: bottomLeftLong)
-            ]
-            let url = urlComponents.url!.absoluteURL
-            var request = URLRequest(url: url)
-            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-
-            print(urlComponents.url!.absoluteURL)
-            
-            sendRequest(urlComponents.url!.absoluteURL) { (result, error) in
-                print("Got an answer: \(String(describing: result))")
-                print(result)
-            }
+            requestChargers()
         }
     }
 
     @objc func didPinchMap(_ sender: UIGestureRecognizer) {
         if sender.state == .ended {
-            //code here
-            print("finished pinching map")
+            requestChargers()
         }
-    }
-    
-    func sendRequest(_ url: URL, completion: @escaping ([String: Any]?, Error?) -> Void) {
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data, // is there data
-                let response = response as? HTTPURLResponse, // is there HTTP response
-                (200 ..< 300) ~= response.statusCode, // is statusCode 2XX
-                error == nil else { // was there no error, otherwise ...
-                    completion(nil, error)
-                    return
-            }
-            print(data)
-            let jsonDict:NSDictionary = try JSONSerialization.jsonObject(with: data, options:.mutableContainers) as! NSDictionary
-            print(jsonDict)
-            //completion(, nil)
-        }
-        task.resume()
     }
 }

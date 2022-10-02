@@ -28,6 +28,7 @@
 		7398862F28E91C73007734B5 /* VehiclePin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7398862E28E91C73007734B5 /* VehiclePin.swift */; };
 		7398863128E91E2F007734B5 /* NoVehicleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7398863028E91E2F007734B5 /* NoVehicleVC.swift */; };
 		73BAE69428E977280080CF6E /* Charger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BAE69328E977280080CF6E /* Charger.swift */; };
+		73BAE69628E97EAA0080CF6E /* ChargerPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BAE69528E97EAA0080CF6E /* ChargerPin.swift */; };
 		CA282CAAE298CCF0ECE84F46 /* Pods_Foray.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FDBA4831DE6E042D3D652A /* Pods_Foray.framework */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +77,7 @@
 		7398862E28E91C73007734B5 /* VehiclePin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehiclePin.swift; sourceTree = "<group>"; };
 		7398863028E91E2F007734B5 /* NoVehicleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoVehicleVC.swift; sourceTree = "<group>"; };
 		73BAE69328E977280080CF6E /* Charger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Charger.swift; sourceTree = "<group>"; };
+		73BAE69528E97EAA0080CF6E /* ChargerPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargerPin.swift; sourceTree = "<group>"; };
 		AED653EC5A0509A738326A30 /* Pods-Foray.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Foray.release.xcconfig"; path = "Target Support Files/Pods-Foray/Pods-Foray.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -183,6 +185,7 @@
 			children = (
 				7398862C28E91C1D007734B5 /* SettingsListCell.swift */,
 				7398862E28E91C73007734B5 /* VehiclePin.swift */,
+				73BAE69528E97EAA0080CF6E /* ChargerPin.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 				731B14EE28E8C1EC00925048 /* Foray.xcdatamodeld in Sources */,
 				7398861B28E8CB59007734B5 /* LoadingVC.swift in Sources */,
 				7398861D28E8CB90007734B5 /* Constants.swift in Sources */,
+				73BAE69628E97EAA0080CF6E /* ChargerPin.swift in Sources */,
 				7398862928E91870007734B5 /* SettingsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

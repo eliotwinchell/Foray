@@ -11,7 +11,9 @@ struct Charger: Decodable {
 
     // MARK: - Properties
 
-    let location: 
-    let author: String
-
+    let location: Array<Double>
+    let id: Int
+    let name: String
+    let status: String
+    let stallCount: Int
 }
