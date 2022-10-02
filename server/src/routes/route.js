@@ -9,17 +9,26 @@ dotenv.config();
 
 const ChargerModel = mongoose.model('Charger', chargerSchema);
 
-function getChargers() {
+function getRoute() {
   const router = express.Router()
   router.post('', chargersInBounds);
 
   return router
 }
 
-// POST: 123.09.420.101:8000/api/chargersWithinBounds
+// POST: 123.09.420.101:8000/api/mapRoute?start=0.0,0.0&?end=1.0,1.0&?batteryRangeLeft
 async function chargersInBounds(req, res) {
-  const bottomLeftCoords = req.body.bottomLeftCoords;
-  const topRightCoords = req.body.topRightCoords;
+  const startCoords = req.body.startCoords;
+  const endCoords = req.body.endCoords;
+  const batteryRange = req.body.batteryRange;
+
+  // Call Google Maps Platform, check distance with Maps Distance Matrix API
+  
+  // if distance (endCoords - startCoords) < batteryRange {
+  //   return path, which we get from google maps again
+  //} else {
+  //   findChargersWithinBox (startCoords, endCoords) are bounds
+  //}
   
   console.log("endpoint hit");
   console.log(topRightCoords);
@@ -36,8 +45,13 @@ async function chargersInBounds(req, res) {
   })
   .exec((err, data) => {
       if (err) console.log(err);
-      res.send(data);
+      if 
+      // findRoute(data)
   });
+}
+
+async function findRoute(chargers) {
+
 }
 
 module.exports.getChargers = getChargers;
