@@ -60,6 +60,9 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="DhY-m3-hiO">
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="736"/>
+                                <connections>
+                                    <outlet property="delegate" destination="dkF-ef-PW1" id="nYa-DZ-Yyo"/>
+                                </connections>
                             </mapView>
                             <searchBar contentMode="redraw" barStyle="black" searchBarStyle="minimal" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="VZ1-dN-ADP">
                                 <rect key="frame" x="0.0" y="40" width="390" height="56"/>

@@ -18,7 +18,9 @@ class RoutingVC: UIViewController, UISearchBarDelegate, MKMapViewDelegate {
     private var vehicleLocation: DriveState? {
         didSet {
             let initialLocation = CLLocation(latitude: vehicleLocation?.latitude ?? 35.2785431, longitude: vehicleLocation?.longitude ?? -120.7514578)
-            let vehiclePin = VehiclePin(coordinate: CLLocationCoordinate2D(latitude: vehicleLocation?.latitude ?? 35.2785431, longitude: vehicleLocation?.longitude ?? -120.75145781))
+            let vehiclePin = MKPointAnnotation()
+            vehiclePin.coordinate = CLLocationCoordinate2D(latitude: vehicleLocation?.latitude ?? 35.2785431, longitude: vehicleLocation?.longitude ?? -120.75145781)
+            vehiclePin.subtitle = "Your Vehicle"
             
             DispatchQueue.main.async {
                 self.mapView.centerToLocation(initialLocation)
@@ -112,21 +114,19 @@ class RoutingVC: UIViewController, UISearchBarDelegate, MKMapViewDelegate {
         }
     }
     
-    internal func mapView(
-      _ mapView: MKMapView,
-      viewFor annotation: MKAnnotation
-    ) -> MKAnnotationView? {
-      // 2
-      guard let annotation = annotation as? ChargerPin else {
-        return nil
-      }
-      // 3
-      let identifier = "charger-marker"
-      let annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-      annotationView.glyphImage = UIImage(named: "charger-icon")
-        annotationView.markerTintColor = UIColor.blue
-
-      return annotationView
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation.subtitle == "Your Vehicle" {
+            let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "charger-glyph")
+            annotationView.image = UIImage(named: "vehicle-icon")
+            
+            return annotationView
+        } else {
+            let annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "charger-glyph")
+            annotationView.glyphImage = UIImage(named: "charger-glyph")
+            annotationView.glyphTintColor = .white
+            
+            return annotationView
+        }
     }
 }
 
@@ -159,17 +159,16 @@ extension RoutingVC: UIGestureRecognizerDelegate {
         let url = urlComponents.url!.absoluteURL
         var request = URLRequest(url: url)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-
-        print(urlComponents.url!.absoluteURL)
         
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             if let data = data {
                 if let chargers = try? JSONDecoder().decode([Charger].self, from: data) {
-                    print(chargers)
                     for i in 0..<chargers.count {
                         let charger = chargers[i]
-                        let chargerPin = ChargerPin(coordinate: CLLocationCoordinate2D(latitude: charger.location[1], longitude: charger.location[0]), identifier: charger.id, subtitle: String(format: "Supercharger \n Stalls: %d", charger.stallCount))
-                        self.mapView.addAnnotation(chargerPin)
+                        let annotation = MKPointAnnotation()
+                        annotation.coordinate = CLLocationCoordinate2D(latitude: charger.location[1], longitude: charger.location[0])
+                        annotation.subtitle = String(format: "Supercharger \n Stalls: %d", charger.stallCount)
+                        self.mapView.addAnnotation(annotation)
                     }
                 } else {
                     print("no chargers")
