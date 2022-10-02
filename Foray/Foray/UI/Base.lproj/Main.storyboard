@@ -53,7 +53,7 @@
         <!--RoutingVC-->
         <scene sceneID="29A-wf-lUA">
             <objects>
-                <viewController id="dkF-ef-PW1" customClass="RoutingVC" customModule="Foray" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="dkF-ef-PW1" customClass="RoutingVC" customModule="Foray" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Uny-yO-5fx">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="761"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -74,19 +74,19 @@
                             <constraint firstItem="v3c-0F-Gkk" firstAttribute="bottom" secondItem="DhY-m3-hiO" secondAttribute="bottom" constant="25" id="m4N-5b-UHe"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="compass-icon" id="e53-vE-syC"/>
+                    <navigationItem key="navigationItem" id="AyG-Iz-s8e"/>
                     <connections>
                         <outlet property="mapView" destination="DhY-m3-hiO" id="dhm-HX-Ixd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cxk-7P-P4h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2557" y="-374"/>
+            <point key="canvasLocation" x="3486.1538461538462" y="-374.64454976303318"/>
         </scene>
         <!--SearchVC-->
         <scene sceneID="C81-yR-RbA">
             <objects>
-                <tableViewController storyboardIdentifier="SearchVC" id="ENK-Pb-yAt" customClass="SearchVC" customModule="Foray" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SearchVC" modalPresentationStyle="fullScreen" id="ENK-Pb-yAt" customClass="SearchVC" customModule="Foray" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="F7c-mg-I8q">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -125,7 +125,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qhi-bE-BVG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3445" y="-375"/>
+            <point key="canvasLocation" x="4373.8461538461534" y="-375.35545023696682"/>
         </scene>
         <!--Tab BarVC-->
         <scene sceneID="BXa-83-Rql">
@@ -140,7 +140,7 @@
                         <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="dkF-ef-PW1" kind="relationship" relationship="viewControllers" id="Vvi-cn-b8z"/>
+                        <segue destination="xdh-kd-sBE" kind="relationship" relationship="viewControllers" id="Vvi-cn-b8z"/>
                         <segue destination="sSc-h1-arY" kind="relationship" relationship="viewControllers" id="3Ze-Ko-Oas"/>
                         <segue destination="Eq6-Kw-d3d" kind="relationship" relationship="viewControllers" id="zSL-16-ngk"/>
                     </connections>
@@ -332,6 +332,26 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4lK-4K-7Xj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="837" y="741"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="gQZ-RC-DTf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="xdh-kd-sBE" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="compass-icon" id="e53-vE-syC"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="det-6V-RkN">
+                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="dkF-ef-PW1" kind="relationship" relationship="rootViewController" id="ouj-6o-ku9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ChB-s7-ef5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2556.9230769230767" y="-374.64454976303318"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

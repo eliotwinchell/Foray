@@ -14,6 +14,8 @@ import NotificationBannerSwift
 class RoutingVC: UIViewController, UISearchBarDelegate, MKMapViewDelegate {
     @IBOutlet var mapView: MKMapView!
     
+    var resultSearchController: UISearchController? = nil
+    
     private var networkVehicle: Vehicle?
     private var vehicleLocation: DriveState? {
         didSet {
@@ -55,6 +57,30 @@ class RoutingVC: UIViewController, UISearchBarDelegate, MKMapViewDelegate {
         pinchGesture.delegate = self
         mapView.addGestureRecognizer(panGesture)
         mapView.addGestureRecognizer(pinchGesture)
+        
+        let searchVC = storyboard?.instantiateViewController(withIdentifier: "SearchVC") as! SearchVC
+        searchVC.modalPresentationStyle = .fullScreen
+        resultSearchController = UISearchController(searchResultsController: searchVC)
+        resultSearchController?.searchResultsUpdater = searchVC
+        resultSearchController?.modalPresentationStyle = .fullScreen
+        
+        navigationController?.modalPresentationStyle = .fullScreen
+        
+        self.view.layoutIfNeeded()
+        self.view.updateConstraintsIfNeeded()
+                
+        let searchBar = resultSearchController!.searchBar
+         searchBar.sizeToFit()
+        searchBar.placeholder = "Search"
+        navigationItem.titleView = searchBar
+        navigationController?.modalPresentationStyle = .fullScreen
+
+        self.definesPresentationContext = true
+
+        resultSearchController?.hidesNavigationBarDuringPresentation = false
+        searchBar.setImage(UIImage(named: "cursor"), for: .search, state: .normal)
+        
+        searchVC.mapView = mapView
     }
     
     override func viewDidAppear(_ animated: Bool) {
